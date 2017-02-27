@@ -2,17 +2,18 @@
 Download > https://git-scm.com/download/win
 
 # GitHub Basic Command.
- ##CREATE AT LOCAL REPOSITORY DIRECTORY.##
+
+### CREATE AT LOCAL REPOSITORY DIRECTORY.
  
     run on gitbash.cmd type > git init [my project] > enter
   
   (In [my project] must have **.git** folder)
  
- ##CLONE FORM EXTERNAL REPOSITORY DIRECTORY.##
+### CLONE FORM EXTERNAL REPOSITORY DIRECTORY.
 
     run on git.cmd type > git clone [repository] [directory] > enter
  
- ##BASIC CONFIGULATION##
+### BASIC CONFIGULATION
  
  1. SET USERNAME 
   1. GLOBAL TYPE:use config all repository in pc
@@ -29,7 +30,7 @@ Download > https://git-scm.com/download/win
   
           goto [myproject] directory > run on git type > git config user.email [email]
           
-##IGNORE FUNCTION##
+### IGNORE FUNCTION
 
 use for ignore file before [add] and [commit].
 
@@ -40,11 +41,11 @@ use for ignore file before [add] and [commit].
 *jpeg             #ignore all .jpeg
 ```
 
-##WORK FLOW##
+### WORK FLOW
 
-[work tree]--git add command-->[index]--git commit command-->[repository]
+**[work tree] --git add command--> [index] --git commit command--> [repository]**
 
-##CHECK STATUS##
+## CHECK STATUS
 
 use for check status before commit and push to repository.
   goto [myproject] directory > run on git type > git status
