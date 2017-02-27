@@ -1,4 +1,4 @@
 # PYTHON LEARNING SPACE
 ---------------------------
-[1.] import type <return>
+[1.] import type
 coming soon...
