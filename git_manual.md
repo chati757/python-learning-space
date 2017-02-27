@@ -49,6 +49,9 @@ use for ignore file before [add] and [commit].
  1. add command
  2. commit command
  3. remove command
+ 4. check out command
+ 5. revert command
+ 6. reset command
 
 2. SYNC command
  1. put command
