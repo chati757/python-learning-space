@@ -45,7 +45,7 @@ use for ignore file before [add] and [commit].
 
 **[work tree] --git add command--> [index] --git commit command--> [repository]**
 
-## CHECK STATUS
+### CHECK STATUS
 
 use for check status before commit and push to repository.
   goto [myproject] directory > run on git type > git status
