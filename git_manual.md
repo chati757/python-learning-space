@@ -43,7 +43,21 @@ use for ignore file before [add] and [commit].
 
 ### WORK FLOW
 
-**[work tree] --git add command--> [index] --git commit command--> [repository]**
+**[work tree (local)] --git add command--> [index(local)] --git commit command--> [repository(local)]**
+
+**LOCAL command**
+
+1. add command
+
+2. commit command
+
+3. remove command
+
+**SYNC command**
+
+1. put command
+
+2. pull command
 
 ### CHECK STATUS
 
