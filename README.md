@@ -1,4 +1,4 @@
-# python learning space
+# PYTHON LEARNING SPACE
 ---------------------------
-[1.] IMPORT TYPE
+[1.] import type \n
 coming soon...
