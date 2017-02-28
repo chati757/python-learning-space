@@ -48,10 +48,73 @@ use for ignore file before [add] and [commit].
 1. LOCAL command
  1. add command
  2. commit command
- 3. remove command
- 4. check out command
- 5. revert command
- 6. reset command
+ 3. log command (for view commit history)
+ 
+           run on git.cmd type > git log
+ 4. remove command
+ 5. check out command (back to old commit) (read only operation) (commit = version)
+     
+     **DIAGRAM**
+     ```
+     [head pointer c2]
+     [master branch c2]
+     [c0]<------[c1]<------[c2] *lastcommit
+     
+     Ex.git.cmd type > git checkout head~2
+     
+     [head pointer c0]
+     [master branch c2]
+     [c0]<------[c1]<------[c2] *lastcommit
+     
+     and then git.cmd type > git commit
+     
+     [head pointer c3]
+     [sub branch c3]
+     [master branch c2]
+     *c3 have been created new branch form c0
+     
+     [branch c3]
+     [c3]------>[c0]<------[c1]<------[c2]
+     
+     and then git.cmd type > git checkout master
+     
+     [head pointer c2]
+     [sub branch c3]
+     [master branch c2]
+     [c3]------>[c0]<------[c1]<------[c2]
+     
+     if git.cmd type > git checkout head~2 test.js
+     
+     [head pointer c2]
+     [master branch c2]
+     [worktree pointer c0]
+     [c0]<------[c1]<------[c2]
+     
+     in case git.cmd type > git commit
+     
+     [master branch c3]
+     [worktree pointer c3] *continue c2 [be careful!]
+     [c0]<------[c1]<------[c2]<------[c3]
+     ```
+     
+     for each commit
+ 
+           run on git.cmd type > git checkout <commit unique id (Ex.xxxxxx)>
+           
+     last commit
+           
+           run on git.cmd type > git checkout head
+           
+     x commit before head (x=number of commit before head)
+     
+           run on git.cmd type > git checkout head~x
+           
+     specify files for commit
+     
+           run on git.cmd type > git checkout <commit unique id (Ex.xxxxxx)> <filename Ex.test.js>
+     
+ 6. revert command (edit old commit)
+ 7. reset command
 
 2. SYNC command
  1. put command
