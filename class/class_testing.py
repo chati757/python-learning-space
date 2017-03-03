@@ -1,6 +1,8 @@
 class dog:
-    #constructor
+    #constructor 
+    #ex gender = famale < it's class variable
     def __init__(self,name,age):
+        #slef name < it's instance variable
         self.name = name
         self.age = age
         self.data = None
@@ -24,6 +26,9 @@ b = dog("duk",4)
 b.say_hello()
 b.say_age()
 
+#no declare object type 
+dog.name = "momo"
+dog.say_hello()
 
 test1, test2 = ["test2","test1"]
 
