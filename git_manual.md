@@ -12,6 +12,32 @@ Download > https://git-scm.com/download/win
 ### CLONE FORM EXTERNAL REPOSITORY DIRECTORY.
 
     run on git.cmd type > git clone [repository] [directory] > enter
+    
+### SSH SETTING 
+
+-b 4096 = create key length 4096 character.
+
+-c = comment
+
+-t = type
+    
+    run on git-bash.cmd type > ssh-keygen -t rsa -b 4096 -c <comment>
+
+In [home directory]/.ssh have to be 2 files github_rsa and github_rsa.pub
+then create new textfile name is [config] for ssh and type follow..
+
+```
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/github_rsa 
+```
+next..open file github_rsa.pub and copy all content and put content in the github/setting/ssh keys/add ssh key..
+
+and test connection with..
+
+    ssh -T git@github.com
+
  
 ### BASIC CONFIGULATION
  
