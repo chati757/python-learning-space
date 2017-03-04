@@ -1,5 +1,13 @@
 #-*-coding: utf-8 -*-
 
+#-----------------path setting----------------
+#pathset="P:/path_console/log_th_acg01.txt"
+pathset="C:/Users/lenovo/Desktop/log_th.txt"
+#---------------------------------------------
+#-----------------log debug-------------------
+log_show=False
+#set False it'mean not show
+#---------------------------------------------
 testchar=""
 trans_array=[["1","ๅ"],["2","/"],["3","-"],["4","ภ"],["5","ถ"],["6","ุ"],["7","ึ"],["8","ค"],["9","ต"],["0","จ"],["-","ข"],["=","ช"]
     ,["q","ๆ"],["w","ไ"],["e","ำ"],["r","พ"],["t","ะ"],["y","ั"],["u","ี"],["i","ร"],["o","น"],["p","ย"],["[","บ"],["]","ล"],["\\","ฃ"]
@@ -10,39 +18,52 @@ trans_array=[["1","ๅ"],["2","/"],["3","-"],["4","ภ"],["5","ถ"],["6","ุ"]
     ,["A","ฤ"],["S","ฆ"],["D","ฏ"],["F","โ"],["G","ฌ"],["H","็"],["J","๋"],["K","ษ"],["L","ศ"],[":","ซ"],["\"","."]
     ,["Z","("],["X",")"],["C","ฉ"],["V","ฮ"],["B","ฺ"],["N","์"],["M","?"],["<","ฒ"],[">","ฬ"],["?","ฦ"]]
 
-test_array=[["l","ส"],[";","ว"],["y","ั"],["u","ี"],["f","ด"]]
 count=-1
 
-def Main():
-    global testchar,trans_array,test_array,count
-    f = open("C:/Users/lenovo/Desktop/log_th.txt","r")
+def translate_lang():
+    global testchar,trans_array,test_array,count,pathset
+    f = open(pathset,"r")
     lines = f.readlines()
     for line in lines:
-        print(line)
+        set_log(line)
         if(count!=-1):
             testchar+="\n"
+        if((line=="<CHANGE TH>\n")):
+            testchar+="<CHANGE TH>\n"
+            continue
+        if((line=="<ENTER>\n")):
+            testchar+="<ENTER>\n"
+            continue
+        if((line=="<TAB>\n")):
+            testchar+="<TAB>\n"
+            continue
+        if((line=="<BACK SPACE>\n")):
+            testchar+="<BACK SPACE>\n"
+            continue
         count=-1
         for txt in line:
-            print("txt>",len(line)-1,txt)
+            set_log(("txt>",len(line)-1,txt))
             #testchar+=txt.replace('l','ส').replace(';','ว').replace('f','ด').replace('u','ี').replace('y','ั')
             for checkch in trans_array:
                 #print(count)
                 if(txt==checkch[0] and (count<(len(line)-1))):
                     count=count+1
-                    print("replace count",count)
+                    set_log(("replace count",count))
                     testchar+=txt.replace(checkch[0],checkch[1])
     f.close()
     print(testchar)
-    #testtxt="l;ylfu"
-    #print(testtxt.decode("utf-8").replace('l',u'ส').replace(';',u'ว').replace('f',u'ด').replace('u',u'ี').replace('y',u'ั'))
-    
-def translate_lang():
-    print(len(trans_array))
-    #for checkar in test_array:
-    #    print(checkar[0])
-    #    print(checkar[1])
-    
-    
+
+def write_replace():
+    global pathset,testchar
+    f = open(pathset,"w")
+    f.write(testchar)
+    f.close()
+
+def set_log(msg):
+    global log_show
+    if(log_show==True):
+        print(msg)
+        
 if __name__=="__main__":
-    Main()
     translate_lang()
+    write_replace()
