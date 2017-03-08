@@ -15,8 +15,8 @@ import ctypes
 #-----------------path setting----------------
 #path_txten="C:/Users/lenovo/Desktop/log_en.txt"
 #path_txtth="C:/Users/lenovo/Desktop/log_th.txt"
-path_txten="P:/path_console/log_en_acg01.txt"
-path_txtth="P:/path_console/log_th_acg01.txt"
+path_txten="P:/path_console/log_en_ack01.txt"
+path_txtth="P:/path_console/log_th_ack01.txt"
 #---------------------------------------------
 
 
