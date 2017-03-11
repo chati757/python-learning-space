@@ -10,11 +10,14 @@ def main():
     curs_set(False)#not show cursor
     keypad(stdscr,True)#register arrow key 
 
-    window=newwin(10,5,0,0) #newwin(size nline,size ncols,begin position y,begin position x)
+    window=newwin(10,25,3,3) #newwin(size nline,size ncols,begin position y,begin position x)
+    box(window)
     waddstr(window,"helloworld")
 
-    window2=newwin(10,5,20,20)
-    waddstr(window2,"helloworld 2")
+    window2=newwin(10,25,3,3) #newwin(size nline,size ncols,begin position y,begin position x)
+    box(window2)
+    wmove(window2,1,1)
+    waddstr(window2,"helloworld1")
  
     running = True
     while(running):
