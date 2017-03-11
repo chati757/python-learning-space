@@ -75,9 +75,13 @@ use for ignore file before [add] and [commit].
  1. add command
  2. commit command
      
-     basic commit
+     basic all commit
+     
+           run on git.cmd type > git commit -A -m "<comment>"
      
      commit specify type      
+     
+           run on git.cmd type > git commit -o [filename] -m "<comment>"
           
  3. log command (for view commit history)
  
@@ -145,11 +149,47 @@ use for ignore file before [add] and [commit].
            run on git.cmd type > git checkout <commit unique id (Ex.xxxxxx)> <filename Ex.test.js>
      
  6. revert command (edit old commit)
+ 
+         **DIAGRAM**
+           
+           [c0]---->[c1]---->[c2]---->[c3]
+           
+           Ex. git revert c2
+           
+           [c0]---->[c1]---->[c2]---->[c3]---->[c4 revert from c2]
+           
+           run on git.cmd type > git revert <commit unique id (Ex.xxxxxx)> 
+           
  7. reset command
+ 
+         **DIAGRAM**
+         
+           [c0]---->[c1]---->[c2]---->[c3]
+           
+           Ex. git reset --hard c2
+           
+           [c0]---->[c1]---->[c2]
+ 
+           run on git.cmd type > git reset --hard <commit unique id (Ex.xxxxxx)>
 
 2. SYNC command
- 1. put command
- 2. pull command
+
+ 1. check origin and master data
+ 
+           run on git.cmd type > git config --list
+ 
+ 2. check global origin and master data
+ 
+           run on git.cmd type > git config --global --list
+ 
+ 3. pull command
+ 
+           run on git.cmd type > git pull origin master
+ 
+ 4. push command
+ 
+           run on git.cmd type > git push origin master
+ 
 
 ### CHECK STATUS
 
