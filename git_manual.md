@@ -74,6 +74,11 @@ use for ignore file before [add] and [commit].
 1. LOCAL command
  1. add command
  2. commit command
+     
+     basic commit
+     
+     commit specify type      
+          
  3. log command (for view commit history)
  
            run on git.cmd type > git log
