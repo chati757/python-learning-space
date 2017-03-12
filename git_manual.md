@@ -22,7 +22,18 @@ Download > https://git-scm.com/download/win
 -t = type
     
     run on git-bash.cmd type > ssh-keygen -t rsa -b 4096 -C <comment>
-
+    
+    and setting path output if skip [enter] it will be set default at [c:/Users/[username]/.ssh/id_rsa]
+    
+    then go to .ssh file > create file name > config > typing follow this below
+    
+    Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/github_rsa
+    
+    > save > add public key in to github > copy content at file id_rsa.pub and put to ssh setting in github
+ 
 In [home directory]/.ssh have to be 2 files github_rsa and github_rsa.pub
 then create new textfile name is [config] for ssh and type follow..
 
