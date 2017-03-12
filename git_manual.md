@@ -19,9 +19,9 @@ Download > https://git-scm.com/download/win
 
 -C = comment
 
--T = type
+-t = type
     
-    run on git-bash.cmd type > ssh-keygen -T rsa -b 4096 -C <comment>
+    run on git-bash.cmd type > ssh-keygen -t rsa -b 4096 -C <comment>
 
 In [home directory]/.ssh have to be 2 files github_rsa and github_rsa.pub
 then create new textfile name is [config] for ssh and type follow..
