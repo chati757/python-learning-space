@@ -34,28 +34,12 @@ Download > https://git-scm.com/download/win
     
     > save > and rename private key to "github_rsa" and public key "github_rsa.pub" [.pub is extension]
     > add public key in to github > copy content at file id_rsa.pub and put to ssh setting in github
-    
-    if show"Hi <gituser> You've successfully.." it's mean .. it's work!
 
 test ssh connection
 
     run on git-bash.cmd type > ssh -T github.com > [enter] > type "yes"
- 
-In [home directory]/.ssh have to be 2 files github_rsa and github_rsa.pub
-then create new textfile name is [config] for ssh and type follow..
-
-```
-Host github.com
-    HostName github.com
-    User git
-    IdentityFile ~/.ssh/github_rsa 
-```
-next..open file github_rsa.pub and copy all content and put content in the github/setting/ssh keys/add ssh key..
-
-and test connection with..
-
-    ssh -T git@github.com
-
+    
+    if show"Hi <gituser> You've successfully.." it's mean .. it's work!
  
 ### BASIC CONFIGULATION
  
