@@ -3,6 +3,8 @@ from unicurses import *
 def main():
     
     stdscr = initscr() #start up screen and initalize ncurses
+    start_color()
+    use_default_colors()
 
     attron(A_REVERSE) #attribute on bold and blink and ...
     addstr("hello world\n")
