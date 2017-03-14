@@ -149,8 +149,12 @@ use for ignore file before [add] and [commit].
      specify files for commit
      
            run on git.cmd type > git checkout <commit unique id (Ex.xxxxxx)> <filename Ex.test.js>
+           
+ 6. diff (check changed thing between 2 commit)
+         
+           run on git.cmd type > git diff [commit unique id (Ex.xxxxxx)(1)]..[commit unique id (Ex.xxxxxx)(2)]
      
- 6. revert command (edit old commit)
+ 7. revert command (edit old commit)
  
          **DIAGRAM**
            
@@ -162,7 +166,7 @@ use for ignore file before [add] and [commit].
            
            run on git.cmd type > git revert <commit unique id (Ex.xxxxxx)> 
            
- 7. reset command
+ 8. reset command
  
          **DIAGRAM**
          

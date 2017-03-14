@@ -17,7 +17,7 @@ def main():
     waddstr(window,"window1")
 
     window2=newwin(3,20,4,4)
-    box(window2)
+    wborder(window2)
     wmove(window2,1,1)
     waddstr(window2,"window2")
 
