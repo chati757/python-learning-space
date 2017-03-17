@@ -10,6 +10,7 @@ def main():
 
     window = newwin(30,30,0,0)
     box(window)
+    panel = new_panel(window)
 
     #clear()
     choice = my_raw_input(stdscr,window, 2, 3, "cool or hot?").lower()
@@ -19,26 +20,20 @@ def main():
         mvwaddstr(window,5,3,"HOT") #mvaddstr(5,3," HOT!") 
     else:
         mvwaddstr(window,5,3,"Invalid input") #mvaddstr(5,3," Invalid input") 
-
-    running = True
-    while(running):
-        key=wgetch(window)#don't forget setting window2 or window in this line
-        if(key==27):
-            running = False
-            break
-
+        
+    box(window)
+    update_panels()
+    doupdate()
     endwin() #for stop ncurses
 
-    return 0
+  
 
-def my_raw_input(stdscr,window,r,c, prompt_string):
-    mvwaddstr(window,r,c,prompt_string) #mvaddstr(r, c, prompt_string)
-    refresh()
-    input = mvgetstr(r + 1,c)
+def my_raw_input(stdscr,window,row,col, prompt_string):
+    #display cool or hot?
+    mvwaddstr(window,row,col,prompt_string) #mvaddstr(r, c, prompt_string)
+    #refresh() #return to line 1 again
+    input = mvwgetstr(window,(row + 1),col) #wait input for this line
     return input
-
-def quest():
-
 
 if(__name__=="__main__"):
     main()
