@@ -1,37 +1,38 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import threading 
 
-#join function it'dose wait the current thread terminated before to do create new thread
-def do_this():
-    global count
 
-    print("this first thread!")
-    while(count<300):
+def do_this():
+    global dead
+    count = 0
+
+    print("this os our thread!")
+    while(not dead):
         count+=1
-        pass
-        
-    print(count)
-    
-def do_after():
-    global count
-    
-    print("this second thread!")
-    while(count<300):
-        count+=1
+        print("count func",count)
         pass
 
 def main():
-    global count
-    count = 0
+    global dead
+    dead = False
 
     #by raw main thread is not daemon = false
-    main_thread=threading.enumerate()[0]
-    print(main_thread.isDaemon())#false becase it's not daemon
+    our_thread = threading.Thread(target=do_this)
+    our_thread.setDaemon(True)# true จะทำให้ loop while หยุดเมื่อ main thread ทำบรรทัด 28 เสร็จ
+    our_thread.start()#seperate procress
 
-    our_next_thread=threading.Thread(target=do_after)
-    our_next_thread.start()
-    print(next_thread.isDaemon())#false
 
-    # daemon thread ตามกฏของ python python จะออกจากโปรแกรมก็ต่อเมื่อ daemon 
+    print("daemon ",our_thread.isDaemon())
+    print("count ",threading.active_count())
+    print("enumerate ",threading.enumerate())
+
+    raw_input("hit enter to thread die:")
+
+    print("last line stop deamon")
+
+    # daemon จะถูก set เบื่องต้นเป็น false ทุก thread
+    # daemon thread = true ตามกฏของ python python จะออกจากโปรแกรมก็ต่อเมื่อ non-daemon(main thread) ทำงานจบ
 
 
 if(__name__=="__main__"):
