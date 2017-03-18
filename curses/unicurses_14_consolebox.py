@@ -1,5 +1,5 @@
 from unicurses import * 
-
+import sys
 #ref = http://stackoverflow.com/questions/21784625/how-to-input-a-word-in-ncurses-screen
 def main():
     
@@ -12,27 +12,35 @@ def main():
     box(window)
     panel = new_panel(window)
 
-    #clear()
-    choice = my_raw_input(stdscr,window, 2, 3, "cool or hot?").lower()
-    if choice == "cool":
-        mvwaddstr(window,5,3,"Super cool!") #mvaddstr(5,3,"Super cool!")
-    elif choice == "hot":
-        mvwaddstr(window,5,3,"HOT") #mvaddstr(5,3," HOT!") 
-    else:
-        mvwaddstr(window,5,3,"Invalid input") #mvaddstr(5,3," Invalid input") 
-        
-    box(window)
+    running = True
+    while(running):
+        choice = curses_raw_input(stdscr,window, 10, 3, "command : ").lower()
+        if (choice!=""):
+           #mvwaddstr(window,2,3,"in clear")
+            wclear(window)
+        if (choice == "cool"):
+            mvwaddstr(window,5,3,"Super cool!") #mvaddstr(5,3,"Super cool!")
+        elif (choice == "hot"):
+            mvwaddstr(window,5,3,"HOT") #mvaddstr(5,3," HOT!") 
+        elif (choice == "exit"):
+            box(window)
+            break
+        else:
+            mvwaddstr(window,5,3,"Invalid command") #mvaddstr(5,3," Invalid input") 
+
+        box(window)
     update_panels()
-    doupdate()
+    doupdate()    
     endwin() #for stop ncurses
+    
 
   
 
-def my_raw_input(stdscr,window,row,col, prompt_string):
+def curses_raw_input(stdscr,window,row,col, prompt_string):
     #display cool or hot?
     mvwaddstr(window,row,col,prompt_string) #mvaddstr(r, c, prompt_string)
     #refresh() #return to line 1 again
-    input = mvwgetstr(window,(row + 1),col) #wait input for this line
+    input = mvwgetstr(window,(row),col+10) #wait input for this line
     return input
 
 if(__name__=="__main__"):
