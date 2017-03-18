@@ -14,7 +14,7 @@ def main():
 
     running = True
     while(running):
-        choice = curses_raw_input(stdscr,window, 10, 3, "command : ").lower()
+        choice = curses_raw_input(window, 10, 3, "command : ").lower()
         if (choice!=""):
            #mvwaddstr(window,2,3,"in clear")
             wclear(window)
@@ -36,7 +36,7 @@ def main():
 
   
 
-def curses_raw_input(stdscr,window,row,col, prompt_string):
+def curses_raw_input(window,row,col, prompt_string):
     #display cool or hot?
     mvwaddstr(window,row,col,prompt_string) #mvaddstr(r, c, prompt_string)
     #refresh() #return to line 1 again
