@@ -1,9 +1,7 @@
-
-#more example https://pythonspot.com/polymorphism/
 class Car:
     def __init__(self, name):    
         self.name = name
- 
+    #basic ability for Drone
     def drive(self):             
         raise NotImplementedError("Subclass must implement abstract method")
  
@@ -23,11 +21,19 @@ class Truck(Car):
  
     def stop(self):
         return 'Truck breaking!'
- 
+
+class Tank(Car):
+    def drive(self):
+        return 'Tank driving slowly'
+    def shoot(self):
+        return 'Tank shooting'
  
 cars = [Truck('Bananatruck'),
         Truck('Orangetruck'),
-        Sportscar('Z3')]
+        Sportscar('Z3'),
+        Tank('t-34')]
  
 for car in cars:
     print car.name + ': ' + car.drive()
+
+print(Tank('t-34').shoot())
