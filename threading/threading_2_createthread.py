@@ -1,13 +1,17 @@
 import threading 
 
-def do_this():
-    print("this os our thread!")
+our_thread = ""
+
+def do_this(msg):
+    print("this os our thread! :"+msg)
 
 def main():
+    global our_thread
     #threading.Thread(target=function)
-    our_thread = threading.Thread(target=do_this,name=our_thread) #def name is thread-n < n is number of thread
+    our_thread = threading.Thread(target=do_this("hello"),name=our_thread) 
+    print("before start function thread")
     our_thread.start()#seperate procress
-
+    print("after start function thread")
     print(threading.active_count()) #1
     print(threading.enumerate())#show all thread actually running  
     print(threading.current_thread())#show current thread is running

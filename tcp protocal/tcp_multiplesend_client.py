@@ -1,7 +1,7 @@
 import socket
 
 def Main():
-    host = socket.gethostname()
+    host = '127.0.0.1'
     port = 3000
     
     try:
