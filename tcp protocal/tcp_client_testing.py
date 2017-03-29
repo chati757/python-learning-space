@@ -1,7 +1,7 @@
 import socket
 
 def Main():
-    host = socket.gethostname()
+    host = '127.0.0.1'
     port = 3000
     
     try:
@@ -10,7 +10,7 @@ def Main():
         message = "empty"
         #message = raw_input("->")
         #while message !=q:
-        while message !='server -s':
+        while message !="server -s":
             #s.send(message)
             data = s.recv(1024)
             print 'response form server: '+data
