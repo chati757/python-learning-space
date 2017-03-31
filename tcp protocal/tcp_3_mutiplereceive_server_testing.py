@@ -13,7 +13,8 @@ def on_new_client(clientsocket,addr):
         msg = clientsocket.recv(1024) 
         #do some checks and if msg == someWeirdSignal: break:
         if msg=="server -s":
-            break
+            print("in break..")
+            return
         print addr, ' >> ', msg
         #sending stage
         msg = raw_input('SERVER >> ') 
@@ -25,10 +26,13 @@ def on_new_client(clientsocket,addr):
 def check_current_thread(note):
     print("current thread.. "+note)
     print(threading.enumerate())#show all thread actually running  
-    print(threading.current_thread())#show current thread is running
+
+def serv_console():
     
+
 if __name__=="__main__":
     check_current_thread("start main")
+    print("create console")
     s = socket.socket()         # Create a socket object
     host = '127.0.0.1'          # Get local machine name
     port = 3000                 # Reserve a port for your service.
@@ -37,14 +41,18 @@ if __name__=="__main__":
     print 'Waiting for clients...'
 
     s.bind((host, port))        # Bind to the port
-    s.listen(2)                 # Now wait for client connection.
+    s.listen(3)                 # Now wait for client connection.
     while True:
         check_current_thread("in before accept")
         c, addr = s.accept()     # Establish connection with client.
         #print("connect from ",c,addr)
-        thread.start_new_thread(on_new_client,(c,(addr,)))
-        #client_thread=threading.Thread(target=on_new_client(c,addr,))
-        #client_thread.start()
+        #thread.start_new_thread(on_new_client,(c,(addr,)))
+        client_thread=threading.Thread(target=on_new_client,args=(c,(addr,)),name="client thread")
+        client_thread.setDaemon(True)
+        client_thread.start()
+        #check number of client 
+        if(threading.active_count()<2):
+            break    
         #on_new_client(c,addr)
     #Note it's (addr,) not (addr) because second parameter is a tuple
     #Edit: (c,addr)
