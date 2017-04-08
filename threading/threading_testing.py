@@ -1,8 +1,9 @@
-from threading import Thread
+import threading
 import time
 
 def timer(name,delay,repeat):
     print("Timer: "+ name + " Started")
+    print(threading.enumerate())
     while repeat > 0:
         time.sleep(delay)
         print(name + ": "+str(time.ctime(time.time())))
@@ -10,8 +11,8 @@ def timer(name,delay,repeat):
     print("Timer: "+name+" Complete")
 
 def Main():
-    t1 = Thread(target=timer,args=("timer1",1,5))
-    t2 = Thread(target=timer,args=("timer2",2,5))
+    t1 = threading.Thread(target=timer,args=("timer1",1,5),name="t1")
+    t2 = threading.Thread(target=timer,args=("timer2",2,5),name="t2")
     
     t1.start()
     t2.start()

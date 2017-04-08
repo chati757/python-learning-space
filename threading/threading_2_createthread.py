@@ -1,6 +1,6 @@
 import threading 
 
-our_thread = ""
+our_thread = "testing thread"
 
 def do_this(msg):
     print("this os our thread! :"+msg)
@@ -10,6 +10,7 @@ def main():
     #threading.Thread(target=function)
     our_thread = threading.Thread(target=do_this("hello"),name=our_thread) 
     print("before start function thread")
+    
     our_thread.start()#seperate procress
     print("after start function thread")
     print(threading.active_count()) #1
