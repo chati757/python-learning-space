@@ -8,7 +8,7 @@ redis=redis.StrictRedis(
         )
 
 #get keys 
-test=redis.keys("*")
+test=redis.keys("")
 print(test[0])
 
 #set keys and try to check redis database
