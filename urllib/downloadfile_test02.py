@@ -36,4 +36,4 @@ while True:
     status = status + chr(8)*(len(status)+1)
     print status,
 
-    f.close()
+f.close()

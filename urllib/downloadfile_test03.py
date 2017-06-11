@@ -1,5 +1,7 @@
 import urllib.request
 import shutil
+import zipfile
+#work for zipfile like..rar.
 #ref https://stackoverflow.com/questions/7243750/download-file-from-web-in-python-3
 # Download the file from `url` and save it locally under `file_name`:
 #url download https://static.brusheezy.com/system/protected/files/000/012/681/MARIALACAMBRA_MADERAS_JPG.zip?md5=DZm0csXUEAeqYbIDXGrwqQ&expires=1497027561
@@ -39,28 +41,8 @@ print(file_size_dl)
 location_filedestination = "./"+filedestination
 print("set location of file destination")
 print(location_filedestination)
-'''
+
 out_file = open(location_filedestination, 'wb')
+shutil.copyfileobj(filesource,out_file,prelog="download : ",disp_log=True)
+out_file.close
 
-while True:
-    buffer = filesource.read(block_sz)
-    if not buffer:
-        break
-    file_size_dl += len(buffer)
-    out_file.write(buffer)
-    status = r"%10d  [%3.2f%%]" % (file_size_dl, file_size_dl * 100. / file_size)
-    status = status + chr(8)*(len(status)+1)
-    f.close()
-
-shutil.copyfileobj(location_filedestination,out_file)
-'''
-
-'''
-file_size_dl += len(buffer)
-    f.write(buffer)
-    status = r"%10d  [%3.2f%%]" % (file_size_dl, file_size_dl * 100. / file_size)
-    status = status + chr(8)*(len(status)+1)
-    print status,
-
-    f.close()
-'''

@@ -1,3 +1,5 @@
+import sys
+import time
 '''
 in java type
 
@@ -15,15 +17,17 @@ function calc = function(num1,num2,callback){
 
 console.log(calc(2,3,add))
 '''
-def add(a,b):
-    return (a+b)
+def add(a0,b0):
+    return (a0+b0)
 
-def mutiply(a,b):
-    return (a*b)
+def mutiply(a0,b0):
+    return (a0*b0)
 
-def calc(a,b,callback):
-    return (callback(a,b))
-    
+def calc(a1,b1,callback):
+    return (callback(a1,b1))
+
+
+
 if __name__=="__main__":
     #print(mutiply(3,4))
-    print(calc(2,3,add))
+    #print(calc(2,3,add))
