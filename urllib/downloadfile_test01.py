@@ -8,7 +8,7 @@ https://www.youtube.com/watch?v=XjNm9bazxn8
 urllib
 https://www.youtube.com/watch?v=Su4nRkiW2NQ&list=PLYj9OBozaypbr9jRLGWmCAODbX1Vr5bb6
 Web scraping (beautiful soup)
-https://www.youtube.com/watch?v=Su4nRkiW2NQ&list=PLYj9OBozaypbr9jRLGWmCAODbX1Vr5bb6
+https://www.youtube.com/watch?v=aIPqt-OdmS0&t=3s
 
 ref form stack overflow
 
