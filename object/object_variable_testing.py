@@ -10,13 +10,18 @@ print(values) #dict_values(['test1','test2'])
 
 print("list key")
 print(list(keys)) #['t1','t2']
+print("list key : specify type")
 print(list(keys)[0]) #t1
 print("list value")
 print(list(values)) #['test1','test2']
 print(list(values)[0]) #test1
 
-
+print("get value t1")
 print(test.get('t1')) #test1
+print("update value")
+test.update({"t1":"test3"})
+print(list(values)) #['test1','test2']
+print(test.get('t1')) #test3
 
 '''
 >>> a = dict(one=1, two=2, three=3)
