@@ -42,6 +42,19 @@ print('password:', parsed.password)
 print('hostname:', parsed.hostname)
 print('port    :', parsed.port)
 
+url = 'https://www.brusheezy.com/brushes?page=153'
+parsed = urlsplit(url)
+print(parsed)
+print('scheme  :', parsed.scheme)
+print('netloc  :', parsed.netloc)
+print('path    :', parsed.path)
+print('query   :', parsed.query)
+print('fragment:', parsed.fragment)
+print('username:', parsed.username)
+print('password:', parsed.password)
+print('hostname:', parsed.hostname)
+print('port    :', parsed.port)
+
 '''
 Joining
 
