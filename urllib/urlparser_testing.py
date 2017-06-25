@@ -1,6 +1,7 @@
 #ref : https://pymotw.com/3/urllib.parse/
 
 from urllib.parse import urlsplit
+from os.path import splitext
 
 '''
 SplitResult(scheme='http', netloc='user:pwd@NetLoc:80',
@@ -55,6 +56,24 @@ print('password:', parsed.password)
 print('hostname:', parsed.hostname)
 print('port    :', parsed.port)
 
+url = 'http://www.brushlovers.com/web/photoshop-brush/border-motifs.html'
+parsed = urlsplit(url)
+print(parsed)
+print('scheme  :', parsed.scheme)
+print('netloc  :', parsed.netloc)
+print('path    :', parsed.path)
+print('query   :', parsed.query)
+print('fragment:', parsed.fragment)
+print('username:', parsed.username)
+print('password:', parsed.password)
+print('hostname:', parsed.hostname)
+print('port    :', parsed.port)
+
+path = parsed.path
+print(path)
+print(splitext(path))
+ext = splitext(path)[1]
+print(ext)
 '''
 Joining
 

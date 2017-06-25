@@ -9,3 +9,7 @@ str2 = "abc"*5
 print(str2)
 
 print(" ".join(str.split())) #is opposite of split command
+
+print("testlen")
+test=""
+print(len(test))

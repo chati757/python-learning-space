@@ -12,7 +12,7 @@ try:
             s.send(message)
         s.close()
         
-except IOError as e:
+except IOError as e: #except Exception as e: < use for handle all exception
         print(e.errno)
         if(e.errno==10061):
             print("cannot connect , trying..")
