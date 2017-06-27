@@ -13,3 +13,7 @@ print(" ".join(str.split())) #is opposite of split command
 print("testlen")
 test=""
 print(len(test))
+
+str3 = "abc"
+print(str3[:-1])
+print(len(str3))
