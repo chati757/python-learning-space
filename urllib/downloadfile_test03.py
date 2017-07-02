@@ -13,12 +13,17 @@ filesource = urllib.request.urlopen(url)
 meta = filesource.info()
 print("---meta data---")
 print(meta)
+print(meta.get_content_type())      # -> text/html
+print(meta.get_content_maintype())  # -> text
+print(meta.get_content_subtype()) 
 
 print("---file_size---")
+size=[]
 array_meta=str(meta).split("\n")
 for linemeta in array_meta:
     if(linemeta.find("Content-Length")==0):
-        print(linemeta)
+        size=linemeta.split()
+        print((size[1]))
         
 print("--source file--")
 print(filesource)
@@ -43,6 +48,9 @@ print("set location of file destination")
 print(location_filedestination)
 
 out_file = open(location_filedestination, 'wb')
-shutil.copyfileobj(filesource,out_file,prelog="download : ",disp_log=True)
+total=shutil.copyfileobj(filesource,out_file,int(size[1]),prelog="download : ",disp_log=True,endlog="%")
+print("finish")
+print(total)
+#shutil.copyfileobj(filesource,out_file)
 out_file.close
 
