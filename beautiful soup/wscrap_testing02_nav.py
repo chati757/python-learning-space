@@ -38,3 +38,17 @@ print(select)
 print("\n")
 print(select["src"])
 print("\n")
+
+#head > <mata name="description" content="[target]">
+print("find description")
+head = soup.head
+for count,link in enumerate(head.find_all('meta',attrs={"name":"description"})):
+    print(count+1)
+    print(link.get('content'))
+print("\n")
+
+print("find description2")
+div = soup.body
+for link in (div.find_all('div',class_="show-more")):
+    print(link.text)
+print("\n")
