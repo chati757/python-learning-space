@@ -1,5 +1,6 @@
 import bs4 as bs
 import urllib.request
+import re
 
 source = urllib.request.urlopen('http://www.brushlovers.com/web/photoshop-brush/diversity-of-species.html').read()
 soup = bs.BeautifulSoup(source,'lxml')
@@ -51,4 +52,12 @@ print("find description2")
 div = soup.body
 for link in (div.find_all('div',class_="show-more")):
     print(link.text)
+print("\n")
+
+print("download resource")
+for div in soup.find_all("a"):
+    test_search=re.search("./download/.",str(div.get("href")))
+    if(test_search):
+        print(div.get("href"))
+    
 print("\n")

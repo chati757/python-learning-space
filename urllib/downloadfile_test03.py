@@ -5,6 +5,8 @@ import zipfile
 #ref https://stackoverflow.com/questions/7243750/download-file-from-web-in-python-3
 # Download the file from `url` and save it locally under `file_name`:
 #url download https://static.brusheezy.com/system/protected/files/000/012/681/MARIALACAMBRA_MADERAS_JPG.zip?md5=DZm0csXUEAeqYbIDXGrwqQ&expires=1497027561
+#http://my-brushes.s3.amazonaws.com/images/items/4bf7a51327657e40d92cd5bafc125c66decaee55/border-motifs-o.jpg?v=5
+#http://www.brushlovers.com/item/download/?id=6458
 url = "http://www.brushlovers.com/item/download/?id=6458"
 print("--download form url--")
 print(url)
