@@ -1,7 +1,6 @@
 # use for python3 only
 import urllib.request
 #checking : httpbin.org  
-
 proxy = urllib.request.ProxyHandler({'http':'http://127.0.0.1:8080'})
 opener = urllib.request.build_opener(proxy)
 urllib.request.install_opener(opener)
@@ -10,7 +9,7 @@ req = urllib.request.Request(
     "http://httpbin.org/user-agent",
     data=None,
     headers={
-        'User-Agent': 'Mozilla/5.0 test123'
+        'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36'
     }
 )
 
