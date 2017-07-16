@@ -2,10 +2,19 @@ import bs4 as bs
 import urllib.request
 import re
 
-source = urllib.request.urlopen('http://www.brushlovers.com/web/photoshop-brush/diversity-of-species.html').read()
+req = urllib.request.Request(
+    "https://www.thingiverse.com/thing:1439718",
+    data=None,
+    headers={
+        'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36'
+    }
+)
+
+source = urllib.request.urlopen(req).read()
 soup = bs.BeautifulSoup(source,'lxml')
 
 #nav tag
+'''
 print(soup.encode('utf-8'))
 print("find href in nav link")
 print("\n")
@@ -27,9 +36,9 @@ print("\n")
 for div in soup.find_all('div',class_='body'):
     print(div.text.encode('utf-8'))
 print("\n")
-
+'''
 print("find image")
-select = soup.select(".item-image > a > img")
+select = soup.select(".thing-header-data > a")
 print(select)
 print("\n")
 
