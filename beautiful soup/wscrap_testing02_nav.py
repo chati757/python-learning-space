@@ -3,7 +3,7 @@ import urllib.request
 import re
 
 req = urllib.request.Request(
-    "https://www.thingiverse.com/thing:1439718",
+    "https://www.thingiverse.com/thing:1795648",
     data=None,
     headers={
         'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36'
@@ -38,8 +38,8 @@ for div in soup.find_all('div',class_='body'):
 print("\n")
 '''
 print("find image")
-select = soup.select(".thing-header-data > a")
-print(select)
+select = soup.select(".thing-header-data > h1")
+print(select[0].get_text())
 print("\n")
 
 print("find image2")
