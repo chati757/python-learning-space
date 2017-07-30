@@ -23,6 +23,8 @@ test.update({"t1":"test3"})
 print(list(values)) #['test1','test2']
 print(test.get('t1')) #test3
 
+#get key by value
+print(list(test.keys())[list(test.values()).index("test2")])
 '''
 >>> a = dict(one=1, two=2, three=3)
 >>> b = {'one': 1, 'two': 2, 'three': 3}
