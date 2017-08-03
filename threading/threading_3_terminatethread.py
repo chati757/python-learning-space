@@ -15,7 +15,7 @@ def main():
     global dead
     dead = False
     #threading.Thread(target=function)
-    our_thread = threading.Thread(target=do_this,name=our_thread)
+    our_thread = threading.Thread(target=do_this,name="testing thread")
     our_thread.start()#seperate procress
 
     print(threading.active_count()) #1
@@ -27,7 +27,7 @@ def main():
     #sometime can do function do_this sometime not do function do_this
     #**if some thread is end, the all thread is stop .for example maybe thread 1 end first and thread 2 is stop! in that time
 
-    raw_input("hit enter to thread die:")
+    input("hit enter to thread die:")
     dead = True
 if(__name__=="__main__"):
     main()

@@ -33,7 +33,8 @@ def main():
 
     # daemon จะถูก set เบื่องต้นเป็น false ทุก thread
     # daemon thread = true ตามกฏของ python python จะออกจากโปรแกรมก็ต่อเมื่อ non-daemon(main thread) ทำงานจบ
-
+    # จุดประสงค์ของ daemon boolean คือบอกว่า มันโดนสร้างมาแบบไหนถ้า thread โดนสร้างมากจาก main thread daemon จะเป็น false
+    # แต่ถ้า thread ไม่ได้สร้าง จาก main thread แต่ถูกสร้างจาก thread ธรรมดามันจะเป็น true 
 
 if(__name__=="__main__"):
     main()
