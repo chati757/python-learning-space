@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import threading 
+import time
 
 
 def do_this():
@@ -10,6 +11,7 @@ def do_this():
     print("this os our thread!")
     while(not dead):
         count+=1
+        time.sleep(2)
         print("count func",count)
         pass
 
