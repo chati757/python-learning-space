@@ -43,6 +43,7 @@ for tName in threadList:
    threadID += 1
 
 # Fill the queue
+print("Fill the queue")
 queueLock.acquire()
 for word in nameList:
    workQueue.put(word)
