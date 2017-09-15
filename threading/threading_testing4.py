@@ -31,7 +31,7 @@ def process_data(threadName, q):
 
 threadList = ["Thread-1", "Thread-2", "Thread-3"]
 nameList = ["One", "Two", "Three", "Four", "Five"]
-workQueue = queue.Queue(10)
+workQueue = queue.Queue(10) #limit queue
 threads = []
 threadID = 1
 
@@ -51,10 +51,12 @@ queueLock.release()
 
 # Wait for queue to empty
 while not workQueue.empty():
-   pass
+      print("now is not empty")
+      time.sleep(1)
+      pass
 
 # Notify threads it's time to exit
-exitFlag = 1
+exitFlag = 1 #exit loop
 
 # Wait for all threads to complete
 for t in threads:
