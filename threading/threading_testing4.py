@@ -17,7 +17,6 @@ class myThread (threading.Thread):
       process_data(self.name, self.q)
       print ("Exiting " + self.name)
       
-queueLock = threading.Lock()
 def process_data(threadName, q):
    while not exitFlag:
       queueLock.acquire()
@@ -34,6 +33,7 @@ nameList = ["One", "Two", "Three", "Four", "Five"]
 workQueue = queue.Queue(10) #limit queue
 threads = []
 threadID = 1
+queueLock = threading.Lock()
 
 # Create new threads
 for tName in threadList:
