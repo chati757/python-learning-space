@@ -1,4 +1,11 @@
 import time
+
+def shoppingcart():
+    print("shoppingcart")
+
+def dodgeballs():
+    print("dodgeballs")
+
 class RaspberryThread(threading.Thread):
     def __init__(self, function):
         self.running = False
