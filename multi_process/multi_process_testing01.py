@@ -2,24 +2,30 @@
 # -*- coding: utf-8 -*-
 import Queue
 from multiprocessing import Process
-processors = []
+
+processors_arg = []
 processor_num = 11
 workQueue = Queue.Queue()
+
 def single_processor(q,id):
-while not workQueue.empty():
-get_info(q.get(),id)
+    while not workQueue.empty():
+        get_info(q.get(),id)
+
 def get_info(data,processor_id):
-for i in range(1000000):
-a=str(processor_id)+data
+    for i in range(1000000):
+        a=str(processor_id)+data
+
 def main():
-for i in range(1000):
-workQueue.put(str(i))
-for i in range(processor_num):
-p = Process(target=single_processor, args=(workQueue,i))
-p.start()
-processors.append(p)
-for i in processors:
-i.join()
+    for i in range(1000):
+        workQueue.put(str(i))
+
+    for i in range(processor_num):
+        p = Process(target=single_processor, args=(workQueue,i))
+        p.start()
+        processors_arg.append(p)
+
+    for i in processors_arg:
+        i.join()
 
 if __name__ == '__main__':
 main()
