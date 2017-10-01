@@ -8,7 +8,7 @@ def Main():
     s = socket.socket()
     s.bind((host,port))
 
-    s.listen(1)
+    s.listen(1) #หากไม่ใส่ อะไรในวงเล็บ มันจะ unlimit
     for i in range(2):
         print("server is running...")
         print("waiting for client...")
