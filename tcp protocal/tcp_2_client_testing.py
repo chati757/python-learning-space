@@ -1,22 +1,23 @@
 import socket
 
 def Main():
-    host = '127.0.0.1'
+    host = '192.168.1.35'
     port = 3000
     
     try:
         s = socket.socket()
         s.connect((host,port))
+        print(s)
         message = "empty"
-        #message = raw_input("->")
+        message = input("-> ")
         #while message !=q:
-        while message !="server -s":
-            #s.send(message)
-            data = s.recv(1024)
-            print 'response form server: '+data
-            message = raw_input("->")
-            s.send(message)
+        s.send(message.encode('utf-8'))
+
+        data = s.recv(1024)
+        print('response form server: '+data.decode("utf-8"))
+        
         s.close()
+
     except IOError as e:
         print(e.errno)
         if(e.errno==10061):
