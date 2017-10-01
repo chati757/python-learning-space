@@ -15,7 +15,7 @@ def Main():
         print(s)
         print("server busy")
         time.sleep(50) 
-        # ในขณะที่มัน busy โดย sleep มันจะ listen แค่ 1 client เท่านั้น หาก cline 2 หรือมากกว่านั้นเข้ามา
+        # ในขณะที่มัน busy โดย sleep มันจะ listen แค่ 1 client เท่านั้น หาก client 2 หรือมากกว่านั้นเข้ามา
         # client มันจะ error รหัส 10061 ทันที่ 
         c,addr = s.accept()
         print("Connection from: " +str(addr))
