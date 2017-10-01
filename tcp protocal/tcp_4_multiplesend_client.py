@@ -13,9 +13,9 @@ def Main():
         while message !='server -s':
             #s.send(message)
             data = s.recv(1024)
-            print 'response form server: '+data
-            message = raw_input("->")
-            s.send(message)
+            print("response form server: "+data.decode("uft-8"))
+            message = input("->")
+            s.send(message.encode("utf-8"))
         s.close()
     except IOError as e:
         print(e.errno)
