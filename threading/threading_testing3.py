@@ -1,12 +1,12 @@
 import threading
-import Queue
+import queue
 
-cmdqueue = Queue.Queue() # create queue object
+cmdqueue = queue.Queue() # create queue object
 #--------------------------------worker structure------------------------------------------
 def workerThread(queobject):
      while True:
           vars = queobject.get()
-          print vars
+          print(vars)
           queobject.task_done()
 #--------------------------------create worker 4 worker------------------------------------
 for i in range(4):
