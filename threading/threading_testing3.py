@@ -35,7 +35,7 @@ for i in range(10):
     data = i
     cmdqueue.put(data)
     
-cmdqueue.join() # block until all tasks are done
+cmdqueue.join() # block until all tasks are done [work with q.task_done()]
 
 print("stop worker")
 # stop workers
