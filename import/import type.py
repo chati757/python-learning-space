@@ -22,3 +22,7 @@ print(pow(2,2))
 from math import pow as pw
 print("advance type")
 print(pw(2,5))
+
+module = __import__('math')
+func = getattr(module,'pow')
+func()
