@@ -1,8 +1,14 @@
+import os
+
 def Main():
+    pemfile_path = './test.pem'
     #f=open("C:\Windows\System32\drivers\etc","a") append type 
-    f = open("C:/Users/lenovo/Desktop/ASCII Art Studio/prototype_pos_logo_d01.txt","r")
-    lines = f.readlines()
-    print(lines) #['list1\n','list2\n','list3']
+    f = open(os.path.abspath(pemfile_path),"r")
+    lines = f.read()
+    clean_data = '\n'.join(lines.split('\\n'))
+    print(clean_data)
+    #print(''.join(lines[0].rstrip()))
+    #print(''.join("\nMItest\n"))
     f.close()
 
 if __name__=="__main__":
