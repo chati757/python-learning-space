@@ -21,7 +21,7 @@ import os
 '''
 
 api_key = 'DNKQ6FD-940M236-N7QMNDQ-1ZC755Z'
-public_key_pemfile_path = './public_key.pem'
+public_key_pemfile_path = './public_key.pem' #just example
 private_key_pemfile_path = './private_key.pem'
 
 def testing_read_pemfile():
