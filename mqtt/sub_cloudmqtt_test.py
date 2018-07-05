@@ -6,13 +6,13 @@ import urllib.parse as urlparse
 
 # Define event callbacks
 def on_connect(client, userdata, flags, rc):
-    print("rc: " + str(rc))
+    print("on_connect:rc: " + str(rc))
 
 def on_message(client, obj, msg):
-    print(msg.topic + " " + str(msg.qos) + " " + str(msg.payload))
+    print("on_message" + msg.topic + " " + str(msg.qos) + " " + str(msg.payload))
 
 def on_publish(client, obj, mid):
-    print("mid: " + str(mid))
+    print("on_publish:massageid[mid]: " + str(mid))
 
 def on_subscribe(client, obj, mid, granted_qos):
     print("Subscribed: " + str(mid) + " " + str(granted_qos))
@@ -32,18 +32,17 @@ mqttc.on_subscribe = on_subscribe
 
 # Parse CLOUDMQTT_URL (or fallback to localhost)
 #mqtt://USER:PASSWORD@host:port
-topic = "test"
+topic = "testtopic"
 
 # Connect
-mqttc.username_pw_set("zzjsmgiu","nsAHn104ezdV")
-mqttc.connect("m20.cloudmqtt.com",13049,60)
-
+mqttc.username_pw_set("wuolgjlj","7NEws8XoqYnL")
+mqttc.connect("m13.cloudmqtt.com",14081,60)
 
 # Start subscribe, with QoS level 0
-mqttc.subscribe(topic, 0)
+mqttc.subscribe(topic)
 
 # Publish a message
-mqttc.publish(topic, "my message")
+# mqttc.publish(topic, "my message")
 
 # Continue the network loop, exit when an error occurs
 rc = 0

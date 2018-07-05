@@ -28,7 +28,7 @@
         
         create new instance
 
-    testing cmd :
+## mosquitto testing cmd
                          [user]     [password]          [server]          [port]    [topic]
                             |           |                   |               |          |
                             v           v                   v               v          v
@@ -39,7 +39,18 @@
                             v           v                   v               v          v            v
         mosquitto_pub -u wuolgjlj -P 7NEws8XoqYnL -h m13.cloudmqtt.com -p 14081 -t testtopic -m "test msg"
 
+        *using ssl example
+        mosquitto_pub.exe -u wuolgjlj -P 7NEws8XoqYnL -p 24081 -h m13.cloudmqtt.com --tls-version tlsv1.2 --cafile "<certificate dir>/addtrustexternalcaroot.crt" -t testtopic -m "test"
 
+## using mqtt-paho 
+    normal connection type
+        pub_cloudmqtt_test.py
+        sub_cloudmqtt_test.py
+        
+    ssl type
+        pub_ssl_cloudmqtt_test.py
+    *download certificate for cloudmqqt : https://support.comodo.com/index.php?/Default/Knowledgebase/Article/View/979/108/domain-validation-sha-2
+    certificate filename : addtrustexternalcaroot.crt
 
 
 

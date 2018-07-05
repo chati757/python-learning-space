@@ -2,7 +2,6 @@
 
 import socket# Import socket module
 import threading
-import thread
 
 def on_new_client(clientsocket,addr):
     check_current_thread("in on_new_client")

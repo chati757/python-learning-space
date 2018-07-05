@@ -13,8 +13,8 @@ def Main():
         while message !='server -s':
             #s.send(message)
             data = s.recv(1024)
-            print 'response form server: '+data
-            message = raw_input("->")
+            print('response form server: '+data)
+            message = input("->")
             s.send(message)
         s.close()
     except IOError as e:
