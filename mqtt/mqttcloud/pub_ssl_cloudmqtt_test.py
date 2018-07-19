@@ -5,8 +5,15 @@ import os
 import urllib.parse as urlparse
 
 # Define event callbacks
+def error_str(rc):
+    return '{}: {}'.format(rc, mqtt.error_string(rc))
+
 def on_connect(client, userdata, flags, rc):
     print("on_connect:rc: " + str(rc))
+    mqtt.connack_string(rc)
+
+def on_disconnect(client,userdata,rc):
+    print("on_disconnect",error_str(rc))
 
 def on_message(client, obj, msg):
     print("on_message" + msg.topic + " " + str(msg.qos) + " " + str(msg.payload))
@@ -18,7 +25,7 @@ def on_subscribe(client, obj, mid, granted_qos):
     print("Subscribed: " + str(mid) + " " + str(granted_qos))
 
 def on_log(client, obj, level, string):
-    print(string)
+    print("on_log:"+string)
 
 mqttc = mqtt.Client()
 # Assign event callbacks
@@ -28,7 +35,7 @@ mqttc.on_publish = on_publish
 mqttc.on_subscribe = on_subscribe
 
 # Uncomment to enable debug messages
-#mqttc.on_log = on_log
+mqttc.on_log = on_log
 
 # Parse CLOUDMQTT_URL (or fallback to localhost)
 #mqtt://USER:PASSWORD@host:port
@@ -49,7 +56,7 @@ This can be useful in initial server testing,
 but makes it possible for a malicious third party to impersonate your server through DNS spoofing
 '''
 # Connect
-mqttc.username_pw_set("wuolgjlj","7NEws8XoqYnL")
+mqttc.username_pw_set("wuolgjlj","WQKEVlMDkmrR")
 mqttc.connect("m13.cloudmqtt.com",24081,60)
 
 # disables peer verification
@@ -65,4 +72,4 @@ mqttc.publish(topic, "my message")
 rc = 0
 while rc == 0:
     rc = mqttc.loop()
-print("rc: " + str(rc))
+print(error_str(rc))
