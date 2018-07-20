@@ -13,6 +13,12 @@
  * express or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
+
+ example :
+ python basicPubSub.py -e <endpoint> -r <rootCAFilePath> -c <certFilePath> -k <privateKeyFilePath> -id <clientId> -t <topic> -M <message>
+ 
+ # MQTT over WebSocket
+    python basicPubSub.py -e <endpoint> -r <rootCAFilePath> -w
  '''
 
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
