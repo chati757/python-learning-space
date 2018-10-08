@@ -97,10 +97,12 @@ if useWebsocket:
     myAWSIoTMQTTClient = AWSIoTMQTTClient(clientId, useWebsocket=True)
     myAWSIoTMQTTClient.configureEndpoint(host, port)
     myAWSIoTMQTTClient.configureCredentials(rootCAPath)
+    # maybe it's must have IAMCredentials
 else:
     myAWSIoTMQTTClient = AWSIoTMQTTClient(clientId)
     myAWSIoTMQTTClient.configureEndpoint(host, port)
     myAWSIoTMQTTClient.configureCredentials(rootCAPath, privateKeyPath, certificatePath)
+    # maybe it's must have IAMCredentials
 
 # AWSIoTMQTTClient connection configuration
 myAWSIoTMQTTClient.configureAutoReconnectBackoffTime(1, 32, 20)
