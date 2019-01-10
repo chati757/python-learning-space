@@ -21,6 +21,14 @@ def write_csv_multi_array():
         fw=csv.writer(f)
         fw.writerows(menus)
 
+def write_csv_dict():
+    my_dict = {"test":"1", "testing":"2"}
+
+    with open('csv_testing_write_dict.csv', 'w') as f:  # Just use 'w' mode in 3.x
+        w = csv.DictWriter(f, my_dict.keys())
+        w.writeheader()
+        w.writerows(my_dict)
+
 #custom dilimeter use like this : fw=csv.writer(f,delimiter="|")
 #custom in quoting string only : fw=csv.writer(f,quoting=csv.QUOTE_NONNUMERIC)
 
@@ -35,4 +43,5 @@ if __name__=="__main__":
     #write_csv()
     #write_csv_th()
     #write_csv_multi_array()
-    append_write_csv()
+    #append_write_csv()
+    write_csv_dict()

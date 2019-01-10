@@ -36,7 +36,7 @@ print("\n")
 for div in soup.find_all('div',class_='body'):
     print(div.text.encode('utf-8'))
 print("\n")
-'''
+
 print("find image")
 select = soup.select(".thing-header-data > h1")
 print(select[0].get_text())
@@ -48,6 +48,7 @@ print(select)
 print("\n")
 print(select["src"])
 print("\n")
+'''
 
 #head > <mata name="description" content="[target]">
 print("find description")
