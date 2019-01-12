@@ -21,13 +21,18 @@ def write_csv_multi_array():
         fw=csv.writer(f)
         fw.writerows(menus)
 
-def write_csv_dict():
-    my_dict = {"test":"1", "testing":"2"}
+def write_dict_csv(file_path,dict_data):
+    csv_columns = dict_data[0].keys()
+    try:
+        with open(file_path,'w',newline="") as csvfile:
+            w = csv.DictWriter(csvfile, fieldnames=csv_columns)
+            w.writeheader()
+            for data in dict_data[1:]:
+                w.writerow(data)
+        csvfile.close()
 
-    with open('csv_testing_write_dict.csv', 'w') as f:  # Just use 'w' mode in 3.x
-        w = csv.DictWriter(f, my_dict.keys())
-        w.writeheader()
-        w.writerows(my_dict)
+    except IOError:
+        print("I/O error") 
 
 #custom dilimeter use like this : fw=csv.writer(f,delimiter="|")
 #custom in quoting string only : fw=csv.writer(f,quoting=csv.QUOTE_NONNUMERIC)
@@ -38,10 +43,42 @@ def append_write_csv():
         fw=csv.writer(f)
         fw.writerow(["three","four"])
 
+#update config csv
+def update_config_csv(file_path,config_name,config_value):
+    search_lines = None
+    with open(file_path, 'r',newline="") as readFile:
+        reader = csv.reader(readFile)
+        search_lines = list(reader)
+
+    readFile.close()
+    #print(search_lines) #[['python_IsActive', 'request_update_data_status'], ['true', 'updated']]
+    
+    match_position = None
+    for c,lines in enumerate(search_lines[0]):
+        if(lines==config_name):
+            match_position=c
+
+    if(match_position!=None):
+        with open(file_path, 'w',newline="") as writeFile:
+            writer = csv.writer(writeFile)
+            search_lines[1][match_position]=config_value
+            writer.writerows(search_lines)
+        writeFile.close()
+    else:
+        print("config_name : not found")
+    '''
+    with open(file_path, 'w') as writeFile:
+        writer = csv.writer(writeFile)
+        writer.writerows(lines)
+
+    writeFile.close()
+    '''
+
 
 if __name__=="__main__":
     #write_csv()
     #write_csv_th()
     #write_csv_multi_array()
     #append_write_csv()
-    write_csv_dict()
+    test = [{'test':'testa','testv':'teste'},{'test':'testvv','testv':'e'}]
+    write_dict_csv("csv_testing_write_dict.csv",test)

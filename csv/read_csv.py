@@ -40,6 +40,27 @@ def read_csv_header_dict():
             print(row)
             #print(row["country"],row["gold"])
 
+#csv read config
+def read_config_csv(file_path,config_name):
+    result = None
+    search_lines = None
+    with open(file_path, 'r',newline="") as readFile:
+        reader = csv.reader(readFile)
+        search_lines = list(reader)
+    readFile.close()
+    
+    #print(search_lines) #[['python_IsActive', 'request_update_data_status'], ['true', 'updated']]
+    
+    match_position = None
+    for c,lines in enumerate(search_lines[0]):
+        if(lines==config_name):
+            match_position=c
+    
+    if(match_position!=None):
+        result=search_lines[1][match_position]
+        
+    return(result)
+
 
 if __name__ == "__main__":
     #normal_read_text_io()
