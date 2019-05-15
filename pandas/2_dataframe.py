@@ -150,3 +150,5 @@ print(dataframe['Close']) #display one column of dataframe object or series
 5    85.00
 Name: Close, dtype: float64
 """
+dataframe['shift-close'] = dataframe['Close'].shift(-1)
+print(dataframe)
