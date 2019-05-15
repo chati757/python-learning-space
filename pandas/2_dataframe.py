@@ -1,5 +1,62 @@
 import pandas as pd
 
+# ways to create dataframe
+# initialize list of lists 
+data = [['tom', 10], ['nick', 15], ['juli', 14]] 
+  
+# Create the pandas DataFrame 
+df = pd.DataFrame(data, columns = ['Name', 'Age']) 
+  
+# print dataframe. 
+print(df)
+"""
+   Name  Age
+0   tom   10
+1  nick   15
+2  juli   14
+"""
+# Python code demonstrate creating  
+# DataFrame from dict narray / lists  
+# By default addresses. 
+  
+  
+# intialise data of lists. 
+data = {'Name':['Tom', 'nick', 'krish', 'jack'], 'Age':[20, 21, 19, 18]} 
+  
+# Create DataFrame 
+df = pd.DataFrame(data) 
+  
+# Print the output. 
+print(df)
+"""
+Age   Name
+0   20    Tom
+1   21   nick
+2   19  krish
+3   18   jack
+"""
+# Python code demonstrate creating  
+# pandas DataFrame with indexed by  
+  
+# DataFrame using arrays. 
+import pandas as pd 
+  
+# initialise data of lists. 
+data = {'Name':['Tom', 'Jack', 'nick', 'juli'], 'marks':[99, 98, 95, 90]} 
+  
+# Creates pandas DataFrame. 
+df = pd.DataFrame(data, index =['rank1', 'rank2', 'rank3', 'rank4']) 
+  
+# print the data 
+print(df)
+"""
+       Name  marks
+rank1   Tom     99
+rank2  Jack     98
+rank3  nick     95
+rank4  juli     90
+"""
+
 #convert csv file to dataframe (Can be pull from url)
 dataframe = pd.read_csv("data/timeseries.csv")
 print(dataframe)
