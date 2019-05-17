@@ -19,6 +19,11 @@ def test2(disp_log=False):
             print("in break")
             break
 
+#array passing
+arr = [1,4,5]
+def test3(arr):
+    print(arr)
+
 if __name__=="__main__":
     fucone("test")
     #test()
