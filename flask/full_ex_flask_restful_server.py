@@ -1,3 +1,6 @@
+#adviod warning with
+#set FLASK_ENV=development 
+
 from flask import Flask
 from flask_restful import reqparse, abort, Api, Resource
 
@@ -46,6 +49,10 @@ class TodoList(Resource):
 
     def post(self):
         args = parser.parse_args()
+
+        if(args['task']==None):
+            abort(404, message="null value")
+
         todo_id = int(max(TODOS.keys()).lstrip('todo')) + 1
         todo_id = 'todo%i' % todo_id
         TODOS[todo_id] = {'task': args['task']}
@@ -59,4 +66,4 @@ api.add_resource(Todo, '/todos/<todo_id>')
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=5000,debug=True)
