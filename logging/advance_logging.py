@@ -36,7 +36,7 @@ if __name__ == "__main__":
     main_logger = logging.getLogger("main")
 
     main_formatter_logger = logging.Formatter('%(asctime)s:%(levelname)s:%(name)s:%(message)s') #create logging format instant
-    main_file_handler_logger = logging.FileHandler('advance_testing.log') #create logging file handler instant
+    main_file_handler_logger = logging.FileHandler('./log/advance_testing.log') #create logging file handler instant
     #set logging format in file_handler instant
     main_file_handler_logger.setFormatter(main_formatter_logger)
 
