@@ -1,0 +1,20 @@
+INFO:main:add : 10 + 5 = 15
+INFO:main:add : 10 + 5 = 15
+2019-06-13 14:43:23,401:INFO:main:add : 10 + 5 = 15
+2019-06-13 14:43:23,401:INFO:main:add : 10 + 5 = 15
+2019-06-13 14:50:34,596:INFO:main:add : 10 + 0 = 10
+2019-06-13 14:50:34,597:INFO:main:add : 10 + 0 = 10
+2019-06-13 14:51:24,251:ERROR:main:ZeroDivisonError
+Traceback (most recent call last):
+  File "advance_logging.py", line 28, in devide
+    result = x / y
+ZeroDivisionError: division by zero
+2019-06-13 14:51:24,252:INFO:main:add : 10 + 0 = None
+2019-06-13 14:51:24,252:INFO:main:add : 10 + 0 = None
+2019-06-13 14:52:11,196:ERROR:main:ZeroDivisonError
+Traceback (most recent call last):
+  File "advance_logging.py", line 28, in devide
+    result = x / y
+ZeroDivisionError: division by zero
+2019-06-13 14:52:11,196:INFO:main:add : 10 + 0 = 10
+2019-06-13 14:52:11,196:INFO:main:add : 10 + 0 = 10
