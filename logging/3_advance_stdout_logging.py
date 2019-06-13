@@ -41,6 +41,6 @@ if __name__ == "__main__":
 
     main_logger_handler.setFormatter(main_logger_formatter)
 
-    main_logger.addHandler(main_logger_handler )
+    main_logger.addHandler(main_logger_handler)
 
     main_logger.info("test")
