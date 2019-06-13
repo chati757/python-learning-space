@@ -5,7 +5,7 @@ class someInfoFilter(logging.Filter):
     def filter(self, record):
         print(record.levelno)
         
-        return (record.levelno==30)
+        return (record.levelno==30) #write warnning only
 
 if __name__ == "__main__":
     logger = logging.getLogger()
