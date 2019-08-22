@@ -1,0 +1,1 @@
+from import_inside_folder.target_lib_inside import *

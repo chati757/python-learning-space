@@ -1,3 +1,3 @@
 import sys
 sys.path.append('../')
-from target_lib import *
+from target_lib_outside import *
