@@ -152,3 +152,44 @@ Name: Close, dtype: float64
 """
 dataframe['shift-close'] = dataframe['Close'].shift(-1)
 print(dataframe)
+
+"""
+#df
+   a  b
+0  1  4
+1  3  5
+2  4  6
+
+#----------------- series -------------------
+
+#df.loc[1] get series
+a    3
+b    5
+Name: 1, dtype: int64
+
+#df.loc[df['a']==3,'a'] get series
+1    3
+Name: a, dtype: int64
+
+#df.loc[df['a']==3]['a'] get series
+1    3
+Name: a, dtype: int64
+
+#-------------------------------------------
+
+#---------------- dataframe ----------------
+
+#df.loc[df['a']==3] get dataframe
+   a  b
+1  3  5
+
+#df.loc[df['a']==3] get dataframe
+   a  b
+1  3  5
+
+#df.loc[df['a']==3][['a']] get dataframe
+   a
+1  3
+
+#-------------------------------------------
+"""
