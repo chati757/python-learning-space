@@ -1,0 +1,1 @@
+#https://marketdata.set.or.th/mkt/investortype.do

@@ -153,6 +153,11 @@ Name: Close, dtype: float64
 dataframe['shift-close'] = dataframe['Close'].shift(-1)
 print(dataframe)
 
+print(dataframe.columns)
+"""
+Index(['Date', 'High', 'Low', 'Open', 'Close', 'close_x2', 'close_x2_round_0','sub_date', 'shift-close'],dtype='object')
+"""
+
 """
 #df
    a  b
@@ -192,4 +197,11 @@ Name: a, dtype: int64
 1  3
 
 #-------------------------------------------
+#Example condition syntax
+
+df[df['A'] > 0]
+
+#Example multi-condition syntax
+
+df[(df['W'] > 0) & (df['Y'] > 1)]
 """
