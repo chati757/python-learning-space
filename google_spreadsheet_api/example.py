@@ -85,7 +85,21 @@ def main():
     """
 
     """
-    #basic write
+    basic write
+    target_wr_sheet = {
+        'spreadsheet_id':None, #'1z6yPdxy3MSOUo1QESUkoyqSyDtzSftdoRddFtRVQeo4'
+        'range' : None, #'sheetname!A2:A'
+        'value_input_option' : 'RAW',
+        'body' : {
+            'values':[[]] #[["bvaluea1","btest1"], ["bvaluea2"], ["bvaluea3"]]
+        }
+    }
+    result = service.spreadsheets().values().update(spreadsheetId=target_wr_sheet['spreadsheet_id'], range=target_wr_sheet['range'],valueInputOption=target_wr_sheet['value_input_option'], body=target_wr_sheet['body']).execute()
+    return ('{0} cells updated.'.format(result.get('updatedCells')))
+    """
+
+    """
+    #basic append
     # The A1 notation of a range to search for a logical table of data.
     # Values will be appended after the last row of the table.
     range_ = 'my-range'  # TODO: Update placeholder value.
