@@ -1,3 +1,4 @@
+#ref : https://caisbalderas.com/blog/iterating-with-python-lambdas/ 
 import sys #for check memory
 
 x = [2, 3, 4, 5, 6]
