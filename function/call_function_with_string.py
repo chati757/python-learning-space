@@ -13,3 +13,5 @@ method()
 
 #------------call non class type-----------
 globals()["nonclass_call"]()
+# or
+locals()["nonclass_call"]()
