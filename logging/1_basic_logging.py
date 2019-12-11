@@ -4,13 +4,9 @@ import logging
 Logging Level 
 
 [10]DEBUG: Detailed infomation , typically of interest only when diagnosing problems.
-
 [20]INFO: Confirmation that things are working as expected.
-
 [30]WARNING: An indication that something unexpected hanppened , or indicative of some problem in the near future Ex. disk space low , the software is still working as expected.
-
 [40]ERROR:Due to a more serious problem, the software has not been able to proform some function.
-
 [50]CRITICAL:A serious error , indicating that the program itself may be unable to continue running.
 """
 

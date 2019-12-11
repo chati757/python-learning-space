@@ -11,9 +11,7 @@ if __name__ == "__main__":
     logger = logging.getLogger()
     logger.setLevel(logging.DEBUG)
     hdlr = logging.FileHandler("./log/testing.log")
-    hdlr.setLevel(logging.INFO)
 
-    hdlr2 = logging.StreamHandler()
     #hdlr.setLevel(logging.DEBUG)
     logger.addHandler(hdlr)
     logger.addFilter(someInfoFilter())
