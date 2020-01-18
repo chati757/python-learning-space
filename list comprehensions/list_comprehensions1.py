@@ -16,3 +16,14 @@ def v3():
 #v1()
 v2()
 #v3()
+
+'''
+#another example
+period = 14
+sum([i+1 for i in range(period)])/period
+
+#condition example
+arr = [1,2,3,4,5,6]
+[i for i in arr if i > 2]
+#[3, 4, 5, 6]
+'''
