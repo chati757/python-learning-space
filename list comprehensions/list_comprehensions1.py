@@ -24,6 +24,12 @@ sum([i+1 for i in range(period)])/period
 
 #condition example
 arr = [1,2,3,4,5,6]
+
+#if state
 [i for i in arr if i > 2]
 #[3, 4, 5, 6]
+
+#if else state
+[i if i > 2 else i+1 for i in arr]
+#[2, 3, 4, 5, 6]
 '''
