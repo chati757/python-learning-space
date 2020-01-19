@@ -119,7 +119,7 @@ output = [[4, 3, 1], [4, 3], [1], [3, 1]]
 '''
 inputx = [4,3,1,6,7,8,4,3,9,1,7,8,9,3,1]
 arrx = [c for c,i in enumerate(inputx) if i<5] # [0, 1, 2, 6, 7, 9, 13, 14]
-
+#should be check empty array []
 arry = arrx.copy()[1:] + [None] # [1, 2, 6, 7, 9, 13, 14, None]
 
 end = [i for c,i in enumerate(arrx) if(arrx[c]+1)!=arry[c]] #[2, 7, 9, 14]
