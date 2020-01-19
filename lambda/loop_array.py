@@ -130,6 +130,7 @@ re = list(map(lambda x,y:[x,y],start,end))#[[0, 2], [6, 7], [9, 9], [13, 14]]
 
 result = [inputx[(i[0]):((i[1])+1)] for i in re] #[[4, 3, 1], [4, 3], [1], [3, 1]]
 
+min_arr = [min(i) for i in result] #[1, 3, 1, 1]
 '''
 #syntax compression
 inputx = [4,3,1,6,7,8,4,3,9,1,7,8,9,3,1]
