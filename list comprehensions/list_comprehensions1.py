@@ -19,6 +19,12 @@ v2()
 
 '''
 #another example
+#backward listing
+test = [1,2,3,4,5]
+print(test[::-1]) #[5,4,3,2,1]
+print([i for i in reversed(test)]) #[5,4,3,2,1]
+
+#sum for each value
 period = 14
 sum([i+1 for i in range(period)])/period
 
