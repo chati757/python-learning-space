@@ -44,10 +44,28 @@ def load_iris_dataset(split_train_test=None):
     return x,y
     
 #basic knn
+'''
+#x_train = [[...],[...],...]
+#y_train = [...]
+#x_test = [[...]]
+
+#x = [...]
+#(x_train - x)**2 = [[...],[...],...]
+#np.sum(x_train - x)**2 , axis=1) = [...] 
+#d = np.sqrt(np.sum((x_train-x)**2,axis=1)) = [...]
+#idx = np.argsort(d) = [...] # list of index (Ascending) #find index in nearest distance
+#(values,counts) = np.unique(y_train[idx[:k]],return_counts=True) = ([],[]) # Nearest result Ex.([ชนิดดอกไม้],[จำนวนที่ซ้ำ])
+#ind = np.argmax(counts) # Choose the most duplicate
+#ytest.append(values[ind]) # append result to list
+'''
 def knn(x_train,y_train,x_test,k):
     ytest = []
 
     for x in x_test:
+        print(x_train)
+        print(x)
+        print((x_train-x))
+        print(np.sum((x_train-x))**2)
         d = np.sqrt(np.sum((x_train-x)**2,axis=1))
         print('np.sqrt(np.sum((x_train-x)**2,axis=1)):')
         print(d)
@@ -83,7 +101,7 @@ if __name__=='__main__':
     print(xtest[:1])
     print('\nin knn')
     
-    x_train_data = [[1,2],[3,4]]
+    x_train_data = [[1,2],[9,8]]
     y_train_data = ['a','b']
-    x_testing_data = [[3,3]]
+    x_testing_data = [[3,4]]
     knn(np.array(x_train_data),np.array(y_train_data),np.array(x_testing_data),1)
