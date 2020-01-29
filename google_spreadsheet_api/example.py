@@ -9,7 +9,7 @@ from google.auth.transport.requests import Request
 example spreadsheet link : https://docs.google.com/spreadsheets/d/1z6yPdxy3MSOUo1QESUkoyqSyDtzSftdoRddFtRVQeo4/edit?folder=1PNzfBKYntkb14Dv3dzoOXNPPkgEDiM88#gid=534433466
 example sheet : test_api
 #ref :
-step to cretae oauth2 for use in google spreadsheet : https://developers.google.com/adwords/api/docs/guides/authentication#webapp
+step to create oauth2 for use in google spreadsheet : https://developers.google.com/adwords/api/docs/guides/authentication#webapp
 example code (quick start) : https://developers.google.com/sheets/api/quickstart/python
 example read and write : https://developers.google.com/sheets/api/guides/values
 """
