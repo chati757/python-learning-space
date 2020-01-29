@@ -25,6 +25,7 @@ api_version = 'v4'
 
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 
+#https://docs.google.com/spreadsheets/d/1z6yPdxy3MSOUo1QESUkoyqSyDtzSftdoRddFtRVQeo4/edit#gid=2036130126
 # The ID and range of a sample spreadsheet.
 #SAMPLE_SPREADSHEET_ID = '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms'
 SPREADSHEET_ID = '1z6yPdxy3MSOUo1QESUkoyqSyDtzSftdoRddFtRVQeo4'
@@ -41,13 +42,13 @@ def main():
         with open('token.pickle', 'rb') as token:
             creds = pickle.load(token)
     # If there are no (valid) credentials available, let the user log in.
-    # not creds.valid  เป็นกรณีที่เข้าไปหา token.packle ตาม path แล้วเจอแต่ token เป็นค่าว่าง creds เลยเป็น instance ของ pickle แล้ว เลยสามารถใช้ .valied ได้
+    # not creds.valid  เป็นกรณีที่เข้าไปหา token.packle ตาม path แล้วเจอแต่ token เป็นค่าว่าง creds แต่มันเป็น instance ของ pickle แล้ว เลยสามารถใช้ .valied ได้
     # แต่ถึงแม้ creds เป็นแค่ None และ ไม่ได้เป็น instance ของ pickle condition (if not creds or not creds.valid) ก็ไม่ error แต่อย่างใด อาจเป็นเพราะ if ของ pythonทำมาดี มี except แต่
     # ก็ยังตรวจสอบเงื่อนไข อื่นๆต่อ แล้วทำงานต่อไปได้ โดยปกติ creds.valid ต้อง raise exception ไปแล้วเพราะไม่เป็น instance ของ pickle .valid คงไม่เข้าใจ
     if not creds or not creds.valid:
         #incase creds.valid but creds is instance of pickle
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
+        if creds and creds.expired and creds.refresh_token: #(creds.refresh_token) renew token
+            creds.refresh(Request()) #re-login
         else:
             #incase no token for credential it's will be create google client secrets file from json client_secret_file [json file]
             flow = InstalledAppFlow.from_client_secrets_file(credentials, SCOPES)
