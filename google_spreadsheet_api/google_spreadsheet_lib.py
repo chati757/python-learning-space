@@ -17,7 +17,6 @@ connection = {
 '''
 def build_connection(connection):
     global service
-    count_try = 1
     creds = None
     # The file token.pickle stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
@@ -55,7 +54,6 @@ target_wr_sheet = {
 '''
 
 def write_row(target_wr_sheet):
-    count_try = 1
     result = None
     result = target_wr_sheet['service'].spreadsheets().values().update(spreadsheetId=target_wr_sheet['spreadsheet_id'], range=target_wr_sheet['range'],valueInputOption=target_wr_sheet['value_input_option'], body=target_wr_sheet['body']).execute()
     return(result)
@@ -83,7 +81,6 @@ target_arspr_spreadsheet = {
 
 def insert_row_and_shift_previos_row(target_arspr_spreadsheet):
     response = None
-    count_try = 1
     batch_update_spreadsheet_request_body = {
         "requests": [
             {
