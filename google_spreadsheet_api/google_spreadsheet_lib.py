@@ -60,6 +60,14 @@ def write_row(target_wr_sheet):
     result = target_wr_sheet['service'].spreadsheets().values().update(spreadsheetId=target_wr_sheet['spreadsheet_id'], range=target_wr_sheet['range'],valueInputOption=target_wr_sheet['value_input_option'], body=target_wr_sheet['body']).execute()
     return(result)
 
+def clear_range(target_c_sheet):
+    result = None
+    batch_clear_spreadsheet_request_body = {
+        'ranges': target_c_sheet['ranges']
+    }
+    result =  target_c_sheet['service'].spreadsheets().values().batchClear(spreadsheetId=target_c_sheet['spreadsheet_id'], body=batch_clear_spreadsheet_request_body).execute()
+    return result
+
 '''
 #use for insert_row_and_shift_previos_row only 
 target_arspr_spreadsheet = {
@@ -142,6 +150,7 @@ if __name__ == '__main__':
     }
     service = try_if_error(build_connection,connection,5,5)
     print('build success')
+    '''
     target_wr_sheet = {
         'service':service,
         'spreadsheet_id':'1z6yPdxy3MSOUo1QESUkoyqSyDtzSftdoRddFtRVQeo4',
@@ -152,3 +161,10 @@ if __name__ == '__main__':
         }
     }
     print(try_if_error(write_row,target_wr_sheet,5,5))
+    '''
+    target_c_sheet = {
+        'service':service,
+        'spreadsheet_id':'1z6yPdxy3MSOUo1QESUkoyqSyDtzSftdoRddFtRVQeo4',
+        'ranges':'test_api2!D5:G8'
+    }
+    print(try_if_error(clear_range,target_c_sheet,5,5))

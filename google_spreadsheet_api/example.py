@@ -12,6 +12,7 @@ example sheet : test_api
 step to create oauth2 for use in google spreadsheet : https://developers.google.com/adwords/api/docs/guides/authentication#webapp
 example code (quick start) : https://developers.google.com/sheets/api/quickstart/python
 example read and write : https://developers.google.com/sheets/api/guides/values
+how the token it's work : https://developers.google.com/identity/protocols/OAuth2
 """
 
 #https://console.cloud.google.com/apis/credentials?project=project-deeptune
