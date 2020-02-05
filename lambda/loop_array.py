@@ -1,4 +1,5 @@
 #ref : https://caisbalderas.com/blog/iterating-with-python-lambdas/ 
+#ref : https://thispointer.com/python-how-to-use-if-else-elif-in-lambda-functions/
 import sys #for check memory
 
 x = [2, 3, 4, 5, 6]
@@ -24,6 +25,8 @@ print(f2) #[6]
 f = lambda v : True if (v>0) else False
 print(f(1))
 print(f(-1))
+#lambda multi-cond. Ex.lambda <args> : <return Value> if <condition > ( <return value > if <condition> else <return value>)
+f2 = lambda v : True if (v>0) else (True if(v<-3) else False)
 #--------------------------------------------loop in loop---------------------------------------------
 pos = [[0, 1, 2], [7, 8], [10], [14, 15]]
 print([j for i in pos for j in i]) #[0, 1, 2, 7, 8, 10, 14, 15]
