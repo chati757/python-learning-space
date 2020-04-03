@@ -209,3 +209,7 @@ status meaning
 3. unmodified (edit file event)  
 4. modified (git add file1 file2 fileN) (goto back 2.staged) 
 5. (git commit -m [comment message]) (goto 3. unmodified again)
+
+### reference
+
+https://dev.to/lydiahallie/cs-visualized-useful-git-commands-37p1?fbclid=IwAR0gSm8yHVPxFMY5CWfNCYN1ZXOiwxZWn4Yx8NId6Ijk6XyUBACrx0roRpw#cherry-pick
