@@ -5,7 +5,7 @@ def testreceivetuple(a,b,*args):
 testreceivetuple('a','b',[1,2,3])
 #send 5,6 to a,b and send list to tuple
 testreceivetuple(*[5,6],[1,2,3])
-'''
+
 def testreceivedict(**kwargs):
     result = ""
     # Iterating over the Python kwargs dictionary
@@ -33,4 +33,3 @@ def testpasstuple(a,b):
 #call with
 testpasstuple(*(2,3))
 testpasstuple(*[2,3])
-'''
