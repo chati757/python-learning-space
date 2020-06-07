@@ -1,3 +1,16 @@
+'''
+#old process
+items = [1, 2, 3, 4, 5]
+squared = []
+for i in items:
+    squared.append(i**2)
+
+#new process
+items = [1, 2, 3, 4, 5]
+squared = list(map(lambda x: x**2, items))
+
+'''
+
 test_arr1 = [2,4,7]
 test_arr2 = [6,8,1]
 

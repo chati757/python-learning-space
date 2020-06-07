@@ -11,5 +11,19 @@ def Main():
     #print(''.join("\nMItest\n"))
     f.close()
 
+def test():
+    txtfile_path = './test.txt'
+    f = open(os.path.abspath(txtfile_path),"r")
+    lines = f.read()
+    print(lines)
+
+'''
+#test()
+test1
+test2
+test3
+'''
+
 if __name__=="__main__":
-    Main()
+    #Main()
+    test()
