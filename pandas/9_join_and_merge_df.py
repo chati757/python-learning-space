@@ -38,3 +38,10 @@ print(pd.merge(df,df2,on='date',how='outer'))
 3     4  6  7.0
 4     5  7  8.0
 '''
+print(pd.merge(df,df2,on='date',how='inner'))
+'''
+date  a  b
+0     3  5  6
+1     4  6  7
+2     5  7  8
+'''
