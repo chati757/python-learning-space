@@ -40,6 +40,7 @@ print(pd.merge(df,df2,on='date',how='outer'))
 '''
 print(pd.merge(df,df2,on='date',how='inner'))
 '''
+#output:
 date  a  b
 0     3  5  6
 1     4  6  7
