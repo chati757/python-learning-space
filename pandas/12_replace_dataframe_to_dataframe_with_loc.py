@@ -16,7 +16,7 @@ test_df_merge = test_df1.merge(test_df2,on=['a'])
 test_df_merge.drop([i for i in test_df_merge if i.endswith('_x')],axis=1,inplace=True)
 #test_df_merge.columns = map(lambda x:x.replace('_y','') if(x.endswith('_y')) else x,test_df_merge.columns)
 test_df_merge.columns = [i if not i.endswith('_y') else i.replace('_y','') for i in test_df_merge.columns]
-pd.concat([test_df1,test_df_merge],sort=False,ignore_index=True).drop_duplicates(subset='a',keep='last').sort_values(by='a')
+test_df_con = pd.concat([test_df1,test_df_merge],sort=False,ignore_index=True).drop_duplicates(subset='a',keep='last').sort_values(by='a')
 '''
    a  b
 0  1  4
@@ -24,7 +24,14 @@ pd.concat([test_df1,test_df_merge],sort=False,ignore_index=True).drop_duplicates
 5  3  6
 3  4  7
 '''
-
+test_df_con.index = test_df1.index
+'''
+   a  b
+0  1  4
+1  2  5
+2  3  6
+3  4  7
+'''
 '''
 #drop old data (old columns it's end with _x)
 df_buff.drop([i for i in df_buff.columns if i.endswith('_x')],axis=1,inplace=True)
