@@ -24,7 +24,12 @@ test_df_con = pd.concat([test_df1,test_df_merge],sort=False,ignore_index=True).d
 5  3  6
 3  4  7
 '''
-test_df_con.index = test_df1.index
+try:
+    test_df_con.index = test_df1.index
+except ValueError:
+    #df.index = np.arange(1,len(df)+1)
+    test_df_con.index = np.arange(test_df1.index[0],test_df1.shape[0])
+
 '''
    a  b
 0  1  4
