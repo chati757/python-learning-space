@@ -1,3 +1,4 @@
+import pandas as pd
 test_df1 = pd.DataFrame({'a':[1,2,3,4],'b':[4,-1,-1,7]}) #สมมุติว่า เลข -1 คือเลขที่ควรแก้ไข เป็น 5 และ 6 ตาม test_df2
 '''
    a  b
@@ -12,7 +13,8 @@ test_df2 = pd.DataFrame({'a':[2,3],'b':[5,6]}) #คือข้อมูลท�
 0  2  5
 1  3  6
 '''
-test_df_merge = test_df1.merge(test_df2,on=['a'])
+#test_df_merge = test_df1.merge(test_df2,on=['a'])
+test_df_merge = pd.merge(test_df1,test_df2,on=['a'])
 test_df_merge.drop([i for i in test_df_merge if i.endswith('_x')],axis=1,inplace=True)
 #test_df_merge.columns = map(lambda x:x.replace('_y','') if(x.endswith('_y')) else x,test_df_merge.columns)
 test_df_merge.columns = [i if not i.endswith('_y') else i.replace('_y','') for i in test_df_merge.columns]
@@ -30,6 +32,7 @@ except ValueError:
     #df.index = np.arange(1,len(df)+1)
     test_df_con.index = np.arange(test_df1.index[0],test_df1.shape[0])
 
+print(test_df_con)
 '''
    a  b
 0  1  4
