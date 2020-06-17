@@ -1,3 +1,4 @@
+#หากเป็นการกำหนดค่าเข้าไปใหม่แทนค่าเดิมใน row คือเป็นวิธีที่ดีสุด
 # import pandas package as pd 
 import pandas as pd 
   

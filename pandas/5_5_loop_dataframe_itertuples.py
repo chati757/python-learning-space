@@ -1,3 +1,4 @@
+#หากเป็นการแสดงผลถือเป็นวิธีที่มีประสัทธิภาพที่สุด
 # import pandas package as pd 
 import pandas as pd 
   
