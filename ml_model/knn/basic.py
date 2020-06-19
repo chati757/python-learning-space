@@ -30,7 +30,7 @@ def load_iris_dataset(split_train_test=None):
         itest = np.empty((0,),dtype=np.int)
         for i in classes:
             idx = np.where(y==i)[0] #get rows index
-            #rint('idx:')
+            #print('idx:')
             #print(idx)
             split = int(len(idx) * split_train_test)
             #print('split:',split)
@@ -59,16 +59,23 @@ def load_iris_dataset(split_train_test=None):
 #ytest.append(values[ind]) # append result to list
 '''
 def knn(x_train,y_train,x_test,k):
+    print('infunc knn\n')
     ytest = []
 
     for x in x_test:
-        print(x_train)
-        print(x)
-        print((x_train-x))
-        print(np.sum((x_train-x))**2)
+        print('x_train')
+        print(x_train,'\n')
+        print('x')
+        print(x,'\n')
+        print('(x_train-x)')
+        print((x_train-x),'\n')
+        print('(x_train-x)**2')
+        print((x_train-x)**2,'\n')
+        print('np.sum((x_train-x)**2,axis=1)')
+        print(np.sum((x_train-x)**2,axis=1),'\n')
         d = np.sqrt(np.sum((x_train-x)**2,axis=1))
         print('np.sqrt(np.sum((x_train-x)**2,axis=1)):')
-        print(d)
+        print(d,'\n')
         idx = np.argsort(d)
         print('\nidx = np.argsort(d)')
         print(f'idx:{idx}')
@@ -90,18 +97,28 @@ def knn(x_train,y_train,x_test,k):
 
 if __name__=='__main__':
     xtrain , ytrain , xtest , ytest = load_iris_dataset(split_train_test=0.25)
-    #print(xtrain) #Ex.[[4.8 3.  1.4 0.1]..]
-    #print(ytrain) #Ex.['Iris-setosa',..]
-    #print(xtest) #Ex.[[4.8 3.  1.4 0.1]..]
-    #print(ytest) ##Ex.['Iris-setosa',..]
+    print(len(xtrain))
+    print(xtrain) #Ex.[[4.8 3.  1.4 0.1]..]
+    print(len(ytrain))
+    print(ytrain) #Ex.['Iris-setosa',..]
+    print(len(xtest))
+    print(xtest) #Ex.[[4.8 3.  1.4 0.1]..]
+    print(len(ytest))
+    print(ytest) ##Ex.['Iris-setosa',..]
 
     print('prepare data')
     print(xtrain[:2])
     print(ytrain[:2])
     print(xtest[:1])
-    print('\nin knn')
     
+    print('\ntesting state')
     x_train_data = [[1,2],[9,8]]
+    print('x_train_data')
+    print(x_train_data)
     y_train_data = ['a','b']
+    print('y_train_data')
+    print(y_train_data)
     x_testing_data = [[3,4]]
+    print('x_testing_data')
+    print(x_testing_data)
     knn(np.array(x_train_data),np.array(y_train_data),np.array(x_testing_data),1)
