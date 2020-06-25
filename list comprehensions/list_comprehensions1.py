@@ -39,3 +39,9 @@ arr = [1,2,3,4,5,6]
 [i if i > 2 else i+1 for i in arr]
 #[2, 3, 4, 5, 6]
 '''
+
+#get last continue and positive only
+#Ex [1,2,-3,-4,5] -> [1,2] (positive and last continue)
+arr = [1,2,-3,-4,5]
+[arr[j] for c,j in enumerate([arr.index(i) for i in arr if(i>0)]) if(j==c)]
+#[1, 2]
