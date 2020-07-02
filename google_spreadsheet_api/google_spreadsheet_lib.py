@@ -147,16 +147,17 @@ if __name__ == '__main__':
     }
     service = try_if_error(build_connection,connection,5,5)
     print('build success')
-    '''
+    
     target_wr_sheet = {
         'service':service,
         'spreadsheet_id':'1z6yPdxy3MSOUo1QESUkoyqSyDtzSftdoRddFtRVQeo4',
-        'range' : 'test_api!A2', #'sheetname!A2:A'
+        'range' : 'test_api2!A2', #'sheetname!A2:A'
         'value_input_option' : 'RAW',
         'body' : {
-            'values':[["bvaluea1","btest1"], ["bvaluea2"], ["bvaluea3"]] #[["bvaluea1","btest1"], ["bvaluea2"], ["bvaluea3"]]
+            'values':[['testb']]  #[["bvaluea1","btest1"], ["bvaluea2"], ["bvaluea3"]]
         }
     }
+    
     print(try_if_error(write_row,target_wr_sheet,5,5))
     '''
     target_c_sheet = {
@@ -165,3 +166,4 @@ if __name__ == '__main__':
         'ranges':'test_api2!D5:G8'
     }
     print(try_if_error(clear_range,target_c_sheet,5,5))
+    '''
