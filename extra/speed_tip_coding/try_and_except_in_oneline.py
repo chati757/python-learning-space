@@ -1,3 +1,6 @@
+def default():
+    print('inexcept do someting')
+
 def safe_execute(default, exception, function, *args):
     try:
         return function(*args)
