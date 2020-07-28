@@ -14,4 +14,7 @@ except FileNotFoundError:
    df = pd.DataFrame({'a':[],'b':[]})
    pd.DataFrame({'a':[],'b':[]}).to_csv('./data/test_write.csv')
 
-df.append({'a':2,'b':2},ignore_index=~df.append({'a':2,'b':2},ignore_index=True).duplicated().any()).to_csv('./data/test_write.csv',index=False)
+try:
+   df.append({'a':2,'b':2},ignore_index=~df.append({'a':2,'b':2},ignore_index=True).duplicated().any()).to_csv('./data/test_write.csv',index=False)
+except TypeError:
+   pass
