@@ -24,6 +24,7 @@ def testpassdict(a,b):
     print(b)
 
 #call with
+testpassdict(*[1,2])
 testpassdict(a='123',b='456')
 testpassdict(**{'a':'123','b':'456'})
 
