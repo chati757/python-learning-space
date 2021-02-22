@@ -7,6 +7,7 @@ testreceivetuple('a','b',[1,2,3])
 testreceivetuple(*[5,6],[1,2,3])
 testreceivetuple(*[5,6],(1,2,3))
 
+#send paramater many to one
 def testreceivedict(**kwargs):
     result = ""
     # Iterating over the Python kwargs dictionary
@@ -19,6 +20,8 @@ def testreceivedict(**kwargs):
 print(testreceivedict(**{'a':'Real','b':'Python'}))
 print(testreceivedict(a="Real", b="Python", c="Is", d="Great", e="!"))
 
+
+#send parameter one to many
 def testpassdict(a,b):
     print(a)
     print(b)
