@@ -20,3 +20,8 @@ df2 = pd.DataFrame({'a':se1,'b':se2})
 
 print(df)
 print(df.dtypes)
+
+#------------------------------------------------------------
+#create with loc
+df.loc[:,'require_fixed'] = pd.Series([],dtype='object')
+print(df)
