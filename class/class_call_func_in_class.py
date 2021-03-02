@@ -6,6 +6,9 @@ class dog:
         self.name = name
         self.age = age
         self.data = None
+ 
+    def call_internal(self):
+        return 5
 
     def say_hello(self):
         print('Hello, my name is', self.name)
@@ -17,20 +20,4 @@ class dog:
 
 #create object a
 a = dog("dang",2)
-a.say_hello()
-dataa=a.say_age()
-print dataa# value form return
-print a.data# value form function say_hello pass by constructor
-
-b = dog("duk",4)
-b.say_hello()
-b.say_age()
-
-#no declare object type 
-dog.name = "momo"
-dog.say_hello()
-
-test1, test2 = ["test2","test1"]
-
-print(test1)
-print(test2)
+print(a.say_age())
