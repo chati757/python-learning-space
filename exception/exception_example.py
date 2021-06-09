@@ -17,7 +17,7 @@ def test():
    except Exception as e:
       print('inexcept')
       print(e)
-      exit()
+      raise Exception #instead exit()
 
    return 1
 
