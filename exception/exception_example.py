@@ -1,16 +1,24 @@
 #!/usr/bin/python
-try:
-   fh = open("testfile", "w")
+def test():
    try:
-      raise IOError
-   finally:
-      print("Going to close the file")
-      fh.close()
+      fh = open("testfile", "w")
+      try:
+         #raise IOError
+         raise Exception
+      finally:
+         print("Going to close the file")
+         fh.close()
 
-except IOError:
-   print("Error: can\'t find file or read data")
+   except IOError:
+      print("Error: can\'t find file or read data")
+      pass
 
-#not goto exception below
-except Exception as e:
-   print('inexcept')
-   print(e)
+   #not goto exception below
+   except Exception as e:
+      print('inexcept')
+      print(e)
+      exit()
+
+   return 1
+
+print(test())
