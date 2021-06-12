@@ -4,7 +4,7 @@ def test():
       fh = open("testfile", "w")
       try:
          #raise IOError
-         raise Exception
+         raise Exception('some except')
       finally:
          print("Going to close the file")
          fh.close()
@@ -18,7 +18,8 @@ def test():
       print('inexcept')
       print(e)
       raise Exception #instead exit()
-
+   finally:
+      print('in finally')
    return 1
 
 print(test())
