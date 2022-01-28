@@ -10,8 +10,8 @@ config.set('page_status', 'a_float', '3.1415')
 config.set('page_status', 'baz', 'fun')
 config.set('page_status', 'bar', 'Python')
 config.set('page_status', 'foo', '%(bar)s is %(baz)s!')
-
+config.set('page_status', 'test',[2,3,4,5])
 
 # Writing our configuration file to 'example.cfg'
-with open('E:/project w/clicker bot/bot/log_page.txt','w') as configfile:
+with open('test.txt','w') as configfile:
     config.write(configfile)
