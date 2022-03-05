@@ -6,12 +6,15 @@ def decorator(**parameter):
         def warper(*args):
             # code functionality here
             print("Inside inner function")
-            print("I like", args['like'])
-            original_func()
+            original_func(*args)
         # returning wraper function   
         return warper
     return middle
  
-@decorator(test="geeksforgeeks")
-def my_func():
+@decorator(dec_para="geeksforgeeks")
+def my_func(func_para):
     print("Inside actual function")
+    print(func_para)
+
+if __name__=="__main__":
+    my_func("ok")
