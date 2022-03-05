@@ -12,7 +12,7 @@ def decorator(**parameter):
     return middle
  
 @decorator(dec_para="geeksforgeeks")
-def my_func(func_para):
+def my_func(func_para="no"):
     print("Inside actual function")
     print(func_para)
 
