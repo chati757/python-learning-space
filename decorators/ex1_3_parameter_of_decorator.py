@@ -1,12 +1,14 @@
+testglobal = "dec_para"
+
 def decorator(**parameter):
     print("Inside decorator")
     print(parameter)
     def middle(original_func):
         print("Inside inner")
-        def warper(*args):
+        def warper(**args):
             # code functionality here
             print("Inside inner function")
-            original_func(*args)
+            original_func(**args)
         # returning wraper function   
         return warper
     return middle
@@ -17,4 +19,4 @@ def my_func(func_para="no"):
     print(func_para)
 
 if __name__=="__main__":
-    my_func("ok")
+    my_func(func_para="yes")
