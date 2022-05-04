@@ -4,7 +4,7 @@ import pandas as pd
 dtypes = numpy.dtype([
           ('a', str),
           ('b', int),
-          ('c', float),
+          ('c', float),#np.float64(np.nan)
           ('d', numpy.datetime64),
           ])
 data = numpy.empty(0, dtype=dtypes)

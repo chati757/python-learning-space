@@ -1,0 +1,192 @@
+<html>
+    <head>
+        <style>
+            /* css 
+            ref : https://lospec.com/palette-list/steam-lords
+            ref : https://lospec.com/palette-list/nyx8
+            ref : https://lospec.com/palette-list/purplemorning8
+            ref : https://lospec.com/palette-list/ty-shades-of-nokia-12
+            ref : https://lospec.com/palette-list/walking-in-the-woods-8
+            */
+            body {
+                /*font-family: "white rabbit";*/
+                font-family: "consolas";
+                font-size: 16px;
+                background : #332F35;
+                color: #d0d0d0;
+            }
+            #inspector {
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            #inspector td, #inspector th {
+                border: 1px solid #695e70;
+                padding: 8px;
+            }
+
+            #inspector tr:nth-child(even){
+                background-color: #2e2a4f;
+                color : white;
+            }
+
+            #inspector tr:nth-child(odd){
+                background-color: #3b405e;
+                color : white;
+            }
+
+            #inspector tr:hover {
+                background-color: #cfa98a;
+                color:black;
+            }
+
+            #inspector th {
+                font-size: 20px;
+                font-weight: bold;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: center;
+                background-color: #60556e;
+                color: #ffcb6b;
+            }
+
+            #inspector .pattern_true {
+                background:"#cdd4a5";
+                color:"black";
+                font-weight:"bold";
+            }
+        </style>
+        <script src="eel.js"></script>
+    </head>
+    <body>
+        <h1>
+            HELLO EEL
+        </h1>
+        <p>SET100 RSI10 : <span id="set100_rsi10_value"></span> : <span id="set100_rsi10_level"></span></p>
+        <table id="inspector">
+            <tr>
+                <th>STOCK_NAME</th>
+                <th>SECTOR</th>
+                <th>GRADE</th>
+                <th>HLFC.</th>
+                <th>RSI10</th>
+                <th>RSI10 WTB.</th>
+                <th>INV.HARAMI P.</th>
+                <th>DOUBLE P.</th>
+            </tr>
+        </table>
+    <script>
+        //yellow alert
+        //<td style="background:#f6d6bd;color:black;font-weight: bold;">a</td>
+        function update_set100_rsi10(rsi10_val,rsi10_level){
+            document.getElementById("set100_rsi10_value").innerText = rsi10_val
+            document.getElementById("set100_rsi10_level").innerText = rsi10_level
+        }
+        eel.expose(update_set100_rsi10)
+
+        function fetch_table_data(json_table){
+            json_table_arr = JSON.parse(json_table)
+            console.log(json_table_arr)
+            for(let i=0;i<json_table_arr.length;i++){
+                let table = document.getElementById('inspector')
+                let buff_row = table.insertRow(i+1)
+                
+                buff_row.id = json_table_arr[i][0]
+                
+                let buff_symbol_cell = buff_row.insertCell(0)
+                buff_symbol_cell.className = "stock_name"
+                buff_symbol_cell.innerText = json_table_arr[i][0]
+
+                let buff_sector_cell = buff_row.insertCell(1)
+                buff_sector_cell.className = "sector"
+                buff_sector_cell.innerText = json_table_arr[i][1]
+
+                let buff_grade_cell = buff_row.insertCell(2)
+                buff_grade_cell.className = "grade"
+                buff_grade_cell.innerText = json_table_arr[i][2]
+
+                let buff_hlfc_cell = buff_row.insertCell(3)
+                buff_hlfc_cell.className = "hlfc"
+                buff_hlfc_cell.innerText = json_table_arr[i][3]
+
+                let buff_rsi10_cell = buff_row.insertCell(4)
+                buff_rsi10_cell.className = "rsi10"
+                buff_rsi10_cell.innerText = json_table_arr[i][4]
+
+                let buff_rsi10_wtb_cell = buff_row.insertCell(5)
+                buff_rsi10_wtb_cell.className = "rsi10_wtb"
+                buff_rsi10_wtb_cell.innerText = json_table_arr[i][5]
+
+                let buff_inv_harami_pattern_cell = buff_row.insertCell(6)
+                buff_inv_harami_pattern_cell.className = "inv_harami_pattern"
+                buff_inv_harami_pattern_cell.innerText = json_table_arr[i][6]
+
+                let buff_double_pattern_cell = buff_row.insertCell(7)
+                buff_double_pattern_cell.className = "double_pattern"
+                buff_double_pattern_cell.innerText = json_table_arr[i][7]
+            }
+        }
+        eel.expose(fetch_table_data)
+
+        function update_highlight_hlfc(){
+            for(let i=0;i<document.getElementsByClassName("hlfc").length;i++){
+                let buff_hlfc = document.getElementsByClassName("hlfc")[i]
+                let buff_rsi_wtb_text = document.getElementsByClassName("rsi10_wtb")[i].innerText
+                wait_rate = parseInt(buff_rsi_wtb_text.substr(buff_rsi_wtb_text.indexOf("w.")+2,1))
+                if(parseInt(buff_hlfc.innerText) >= wait_rate){
+                    buff_hlfc.style.background = "#ffcb6b" 
+                    buff_hlfc.style.color = "black"
+                }
+                else{
+                    buff_hlfc.style.background = "none"
+                    buff_hlfc.style.color = "none"
+                }
+            }
+        }
+        eel.expose(update_highlight_hlfc)
+
+        function update_highlight_rsi10(){
+
+        }
+        eel.expose(update_highlight_rsi10)
+
+        function update_highlight_rsi10_wtb(){
+
+        }
+        eel.expose(update_highlight_rsi10_wtb)
+
+        function update_highlight_inv_harami_pattern(){
+            //highlight true cell
+            for (const i of document.getElementsByClassName("inv_harami_pattern")){
+                if(i.innerText=='TRUE'){
+                    i.style.background = "#ffcb6b"
+                    i.style.color = "black"
+                    //i.style.fontWeight = "bold" 
+                }
+            }
+        }
+        eel.expose(update_highlight_inv_harami_pattern)
+
+        function update_highlight_double_pattern(){
+            //highlight true cell
+            for (const i of document.getElementsByClassName("double_pattern")){
+                if(i.innerText=='TRUE'){
+                    i.style.background = "#ffcb6b"
+                    i.style.color = "black"
+                    //i.style.fontWeight = "bold" 
+                }
+            }
+        }
+        eel.expose(update_highlight_double_pattern)
+
+        function update_highlight_rsi_wtb(){
+            //rsi level
+            const set100_rsi10_level = parseInt(document.getElementById("set100_rsi10_level").innerText)
+            //loop rsi10 wtb
+            //get stock_rsi10_level
+            //get stock_rsi10_tension
+            //highlight or not
+        }
+    </script>
+    </body>
+</html>
