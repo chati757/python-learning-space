@@ -62,6 +62,9 @@
         <h1>
             HELLO EEL
         </h1>
+        <h2>
+            test data table
+        </h2>
         <p>SET100 RSI10 : <span id="set100_rsi10_value"></span> : <span id="set100_rsi10_level"></span></p>
         <table id="inspector">
             <tr>
@@ -75,15 +78,14 @@
                 <th>DOUBLE P.</th>
             </tr>
         </table>
+        <h2>test image</h2>
+        <img src="./image/Rome Adzan.jpg" alt="Italian Trulli">
+        <h2>test sound</h2>
+        <button onclick="play_sound_with_path('./sound/airbus_warning_sound.wav')">play</button>
     <script>
-        //yellow alert
-        //<td style="background:#f6d6bd;color:black;font-weight: bold;">a</td>
-        function update_set100_rsi10(rsi10_val,rsi10_level){
-            document.getElementById("set100_rsi10_value").innerText = rsi10_val
-            document.getElementById("set100_rsi10_level").innerText = rsi10_level
+        function play_sound_with_path(path_str){
+            new Audio(path_str).play()
         }
-        eel.expose(update_set100_rsi10)
-
         function fetch_table_data(json_table){
             json_table_arr = JSON.parse(json_table)
             console.log(json_table_arr)
@@ -127,66 +129,6 @@
             }
         }
         eel.expose(fetch_table_data)
-
-        function update_highlight_hlfc(){
-            for(let i=0;i<document.getElementsByClassName("hlfc").length;i++){
-                let buff_hlfc = document.getElementsByClassName("hlfc")[i]
-                let buff_rsi_wtb_text = document.getElementsByClassName("rsi10_wtb")[i].innerText
-                wait_rate = parseInt(buff_rsi_wtb_text.substr(buff_rsi_wtb_text.indexOf("w.")+2,1))
-                if(parseInt(buff_hlfc.innerText) >= wait_rate){
-                    buff_hlfc.style.background = "#ffcb6b" 
-                    buff_hlfc.style.color = "black"
-                }
-                else{
-                    buff_hlfc.style.background = "none"
-                    buff_hlfc.style.color = "none"
-                }
-            }
-        }
-        eel.expose(update_highlight_hlfc)
-
-        function update_highlight_rsi10(){
-
-        }
-        eel.expose(update_highlight_rsi10)
-
-        function update_highlight_rsi10_wtb(){
-
-        }
-        eel.expose(update_highlight_rsi10_wtb)
-
-        function update_highlight_inv_harami_pattern(){
-            //highlight true cell
-            for (const i of document.getElementsByClassName("inv_harami_pattern")){
-                if(i.innerText=='TRUE'){
-                    i.style.background = "#ffcb6b"
-                    i.style.color = "black"
-                    //i.style.fontWeight = "bold" 
-                }
-            }
-        }
-        eel.expose(update_highlight_inv_harami_pattern)
-
-        function update_highlight_double_pattern(){
-            //highlight true cell
-            for (const i of document.getElementsByClassName("double_pattern")){
-                if(i.innerText=='TRUE'){
-                    i.style.background = "#ffcb6b"
-                    i.style.color = "black"
-                    //i.style.fontWeight = "bold" 
-                }
-            }
-        }
-        eel.expose(update_highlight_double_pattern)
-
-        function update_highlight_rsi_wtb(){
-            //rsi level
-            const set100_rsi10_level = parseInt(document.getElementById("set100_rsi10_level").innerText)
-            //loop rsi10 wtb
-            //get stock_rsi10_level
-            //get stock_rsi10_tension
-            //highlight or not
-        }
     </script>
     </body>
 </html>
