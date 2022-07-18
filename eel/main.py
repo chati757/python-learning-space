@@ -39,6 +39,7 @@ eel.js_with_error()(print_num, print_num_failed)
 #test error to javascript (js to py)
 @eel.expose
 def py_exception(error):
+    print(type(error))
     if error:
         raise ValueError("Test")
     else:
