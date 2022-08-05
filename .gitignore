@@ -2,4 +2,4 @@
 credential.json
 token.pickle
 profile.py
-__pycache__
+*.pyc
