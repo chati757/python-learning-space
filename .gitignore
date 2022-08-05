@@ -1,3 +1,4 @@
 /mqtt/aws_iot_core/certificate
 credential.json
 token.pickle
+profile.py
