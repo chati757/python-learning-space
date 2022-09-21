@@ -2,15 +2,18 @@
 # -*- coding: utf-8 -*-
 
 import threading
+import time
 
 def do_this():
     global x,lock
 
     lock.acquire()
     try:
-        while(x<300):
+        while(x<10):
             x+=1
-        print x
+            print('do this')
+            time.sleep(1)
+        print(x)
     finally:
         lock.release()
 
@@ -19,12 +22,14 @@ def do_after():
     
     lock.acquire()
     try:
-        x=450
-        while(x<600):
+        x=30
+        while(x<40):
             x+=1
-        print x
+            print('do after')
+            time.sleep(1)
+        print(x)
     finally:
-        lock.release()
+        return x
 
 def main():
     global x,lock

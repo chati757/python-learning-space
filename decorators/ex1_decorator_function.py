@@ -28,6 +28,15 @@ print(df)
 print('next')
 
 '''
-เหตุผลว่าทำไม call wrap func 2 ครั้ง ลองดู ex2.py
+เหตุผลว่าทำไม call wrap func 2 ครั้ง
 '''
 df('name','age')
+'''
+dec(display('name','age')) -> wrap2
+dec(warp2) -> wrap
+การทำงานจะเริ่มจาก wrap_function บรรทัดที่ 9 ถูก run 
+run wrap2(warp('name','age'))
+run wrap() , args=('name','age') , original=wrap2 , finally:run:warp2('name','age')
+run wrap2() , args=('name','age') , original=display
+เทียบเท่า diplay(wrap2(wrap('name','age'))) โดยเริ่มจากในไปนอก และ args=('name','age') ก็ถูกส่งจากในไปนอกเช่นกัน
+'''

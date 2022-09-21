@@ -20,12 +20,12 @@ def decorator_function2(original_function):
     return wrap_function
 
 print('before first')
-@decorator_function #decorator_display = decorator_function(original_function) ;decorator_deisplay()
-@decorator_function2 #decorator_display2 = decorator_function2(original_function) ;decorator_deisplay2()
 '''
 เริ่มจาก decorator_function2 ก่อน
 decorator_function(decorator_function2(display))
 '''
+@decorator_function #decorator_display = decorator_function(original_function) ;decorator_deisplay()
+@decorator_function2 #decorator_display2 = decorator_function2(original_function) ;decorator_deisplay2()
 def display(name,age):
     print('in display function')
     print('in display',name,age)

@@ -18,7 +18,6 @@ print(tabulate(df,headers='keys', tablefmt='psql',colalign=("center","center","l
 | 3  |   1e-07   |    ABCD     |
 +----+-----------+-------------+
 """
-
 print(tabulate(df,showindex="never", headers='keys', tablefmt='psql',colalign=("center","left")))
 """
 +-----------+-------------+
@@ -30,3 +29,16 @@ print(tabulate(df,showindex="never", headers='keys', tablefmt='psql',colalign=("
 |   1e-07   | ABCD        |
 +-----------+-------------+
 """
+
+print("\n"+tabulate(df, showindex=False, headers=df.columns, numalign="left",tablefmt="fancy_outline")+"\n")
+"""
+╒═══════════╤═════════════╕
+│ col_two   │ column_3    │
+╞═══════════╪═════════════╡
+│ 0.0001    │ ABCD        │
+│ 1e-05     │ ABCD        │
+│ 1e-06     │ long string │
+│ 1e-07     │ ABCD        │
+╘═══════════╧═════════════╛
+"""
+print("end")
