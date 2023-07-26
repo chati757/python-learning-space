@@ -1,36 +1,43 @@
-class dog:
+import time 
+import multiprocessing as mp
+
+def other_func():
+    print('from other func')
+
+class graph:
     #constructor 
     #ex gender = famale < it's class variable
-    def __init__(self,name,age):
+    def __init__(self,symbol):
+        print(f'init graph {symbol}')
         #slef name < it's instance variable
-        self.name = name
-        self.age = age
-        self.data = None
+        self.symbol = symbol
+        #self.plot_process = mp.Process(target=self.__test_private, daemon=True) #error because private function
+        #self.plot_process.start()
+        self.test1()
+        self.test2()
 
-    def say_hello(self):
-        print('Hello, my name is', self.name)
-        self.data = 8+3
- 
-    def say_age(self):
-        print('I am', self.age, 'years old')
-        return self.call_internal()
+    def __test_private(self):
+        print('in private')
 
-#create object a
-a = dog("dang",2)
-a.say_hello()
-dataa=a.say_age()
-print dataa# value form return
-print a.data# value form function say_hello pass by constructor
+    def test1(self):
+        self.test1 = 'hello'
+        data1 = 1 #use variable for this function only
+        data2 = 2 #use variable for this function only
+        print(data1+data2)
 
-b = dog("duk",4)
-b.say_hello()
-b.say_age()
+    def test2(self):
+        print(self.test1)
+    
+    def plot(self):
+        print(f'ploting {self.symbol}')
+        other_func()
 
-#no declare object type 
-dog.name = "momo"
-dog.say_hello()
+if __name__=='__main__':
+    register_obj = {}
+    register_obj['ptt'] = graph('ptt').plot
+    register_obj['aot'] = graph('aot').plot
 
-test1, test2 = ["test2","test1"]
-
-print(test1)
-print(test2)
+    income_symbol = 'ptt'
+    if(income_symbol in register_obj.keys()):
+        register_obj[income_symbol]()
+    time.sleep(5)

@@ -4,7 +4,7 @@ import time
 
 def ponger(p,s):
     count = 0
-    while count < 30:
+    while count < 5:
         msg = p.recv()#wait msg
         print(count)
         print(os.getpid())
@@ -16,11 +16,12 @@ def ponger(p,s):
 if __name__ == "__main__":
     parent , child = Pipe()
     #--------procress [02]--------------
-    proc = Process(target=ponger,args=(child,"ping"))
+    proc = Process(target=ponger,args=(child,"pong"))
     proc.start()
     #--------procress [01]--------------
-    parent.send("pong")
-    ponger(parent,"pong")
+    parent.send("ping")
+    ponger(parent,"ping")
+    #import pdb;pdb.set_trace()
     #proc.join()
 
     '''

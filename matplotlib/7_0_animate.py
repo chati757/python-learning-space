@@ -16,5 +16,5 @@ def animate(i):
     plt.cla()
     plt.plot(x_vals,y_vals)
 
-ani = FuncAnimation(plt.gcf(),animate,interval=500)
+ani = FuncAnimation(plt.gcf(),animate,interval=100)
 plt.show()

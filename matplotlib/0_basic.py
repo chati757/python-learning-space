@@ -1,6 +1,6 @@
 from matplotlib import rcParams
 #set default font family
-rcParams['font.family'] = ['white Rabbit','Orena'] #or plt.rc('font',family='White Rabbit')
+rcParams['font.family'] = ['white Rabbit','orena'] #or plt.rc('font',family='White Rabbit')
 rcParams['axes.unicode_minus'] = False #or plt.rc('axes', unicode_minus=False)
 import matplotlib.pyplot as plt
 import numpy as np
@@ -35,7 +35,7 @@ px1.set_xlabel('days_period',color='#ffcb6b')
 px1.set_ylabel('price_level',color='#ffcb6b')
 
 px1.set_facecolor('#292d3e')
-px1.tick_params(axis='x', colors='#ffcb6b')   #setting up X-axis tick color to red
+px1.tick_params(axis='x', colors='#ffcb6b') 
 px1.tick_params(axis='y', colors='#ffcb6b')
 
 px1.spines['top'].set_color('#ffcb6b')
