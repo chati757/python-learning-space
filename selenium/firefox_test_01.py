@@ -12,17 +12,20 @@ import pandas as pd
 start_time = time.time()
 
 firefox_options = webdriver.FirefoxOptions()
-firefox_options.add_argument('-headless')
+firefox_options.add_argument('-headless') #ใช้ mode headless ช่วยเพิ่มความเร็ว
 #กรณีต้องการ set preference
 #firefox_options.set_preference("browser.download.folderList", 2)
+
 #set useragent
 user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0'
 firefox_options.set_preference("general.useragent.override", user_agent)
+
 #set driver
 firefox_service = Service('P:\project w\python-learning-space\selenium\geckodriver.exe')
 driver = webdriver.Firefox(service=firefox_service,options=firefox_options)
-#dafault waiting element
-wait = WebDriverWait(driver, 20)
+
+#set dafault waiting element
+wait = WebDriverWait(driver, 20) #ประกาศก่อน request เพื่อใช้หลัง request ด้วย wait.until...
 
 #working
 driver.get("https://www.thai-cac.com/who-we-are/our-members/")

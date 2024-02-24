@@ -80,6 +80,8 @@ px3.spines['right'].set_color('#ffcb6b')
 px3.spines['bottom'].set_color('#ffcb6b')
 
 px3.plot(x,y,color='#82aaff')
+#px3.axvline(x=3, color='y' , ls='--')
+#px3.text(x=3,y=0,s=" 13-09\n IC",horizontalalignment='left',fontsize=12,color='palegreen',zorder=2)
 px3.grid(c='#d0d0d0', ls='-', lw=0.1)
 #-----------------------------------------------------------------------------
 plt.show()

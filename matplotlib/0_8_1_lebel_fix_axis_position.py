@@ -9,7 +9,7 @@ ax.set_title('axes title')
 ax.set_xlabel('xlabel')
 ax.set_ylabel('ylabel')
 
-ax.text(0.99, 0.01, 'colored text in axes coords',
+ax.text(0.99, 0.01, 'fix pos colored text in axes coords',
         verticalalignment='bottom', horizontalalignment='right',
         transform=ax.transAxes,
         color='green', fontsize=15)

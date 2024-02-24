@@ -15,7 +15,7 @@ async def main():
     print('สิ้นสุด main')
 
 '''
-ขณะ run co-routine main() มีการ run task ด้วย await ก่อนจบ main() ; task จะไม่ทำงานหลังจบ main() 
+ขณะ run co-routine main() มีการ run task ด้วย await ก่อนจะจบ main() ; task จะไม่ทำงานหลังจบ main() 
 '''
 
 maincoru = main()
