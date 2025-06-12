@@ -1,0 +1,19 @@
+import pickle
+import portalocker
+import time
+
+# อ่านข้อมูลจากไฟล์ pickle
+
+try:
+    with open('data.pkl', 'rb') as file:  # 'rb' หมายถึงอ่านแบบไบนารี
+        portalocker.lock(file, portalocker.LOCK_SH | portalocker.LOCK_NB)
+        loaded_data = pickle.load(file)
+        print('reading and waiting 15 second..')
+        time.sleep(15)
+    
+    print(loaded_data)
+    
+except portalocker.exceptions.LockException:
+    print('in except')
+    pass
+    

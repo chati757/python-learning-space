@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
 import psutil
 import threading
 import time
@@ -40,7 +39,6 @@ def do_this(df):
     
     return df
 
-
 def main():
     print('main running')
     print(f"mainthread pid : {psutil.Process().pid}")
@@ -57,7 +55,7 @@ def main():
     our_thread.join()
     our_next_thread.join()
     
-    print('\nwith main thread after join')
+    print('\ndo with main thread after join')
     import pandas as pd
     df = pd.DataFrame({'a':[2,3,4],'b':[2,3,4]})
     print(do_this(df))

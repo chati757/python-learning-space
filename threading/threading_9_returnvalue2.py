@@ -1,5 +1,5 @@
 def foo(bar, arg_result, index):
-    print 'hello {0}'.format(bar)
+    print('hello {0}'.format(bar))
     arg_result[index] = "foo"
 
 from threading import Thread
@@ -16,4 +16,4 @@ for i in range(len(threads)):
 for i in range(len(threads)):
     threads[i].join()
 
-print " ".join(arg_results)  # what sound does a metasyntactic locomotive make?
+print(" ".join(arg_results))  # what sound does a metasyntactic locomotive make?

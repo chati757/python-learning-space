@@ -3,3 +3,9 @@ credential.json
 token.pickle
 profile.py
 *.pyc
+
+settrade_api.cfg
+pw_file
+acl_file
+client_userpass.ini
+settrade_api.cfg

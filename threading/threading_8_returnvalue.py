@@ -1,7 +1,11 @@
 from threading import Thread
 
+'''
+ตัวอย่างนี้ยังใช้งานไม่ได้เป็นเพียงการแสดง concept เชิงลึกของ thread ว่ามี idea ปรับแก้แบบนี้เท่านั้น
+'''
+
 def foo(bar):
-    print 'hello {0}'.format(bar)
+    print('hello {0}'.format(bar))
     return "foo"
 
 class ThreadWithReturnValue(Thread):
@@ -20,4 +24,4 @@ class ThreadWithReturnValue(Thread):
 twrv = ThreadWithReturnValue(target=foo, args=('world!',))
 
 twrv.start()
-print twrv.join()   # prints foo
+print(twrv.join())  # prints foo

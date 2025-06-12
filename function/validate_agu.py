@@ -7,6 +7,8 @@ def rangetest(*argchecks):                  # validate positional arg ranges
             return func                     # no-op: call original directly
         else:                               # else wrapper while debugging
             def onCall(*args):
+                print(f'onCall : argchecks : {argchecks}')
+                print(f'onCall : args : {args}')
                 for (ix, low, high) in argchecks:
                     if args[ix] < low or args[ix] > high:
                         errmsg = 'Argument %s not in %s..%s' % (ix, low, high)

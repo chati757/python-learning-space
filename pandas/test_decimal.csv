@@ -1,0 +1,4 @@
+symbol,amount,price,state
+BTC,0.00123,42000.55,True
+ETH,0.5,3500,False
+BNB,<NA>,320,<NA>

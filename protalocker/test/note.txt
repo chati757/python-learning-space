@@ -1,0 +1,13 @@
+การ lock ด้วย portalocker.LOCK_SH จะสามารถใช้ lock ได้หลายตัวพร้อมกัน
+มันจะไม่ขวางการทำงานกันเอง แม้ว่าจะจะมีหลาย file สั่ง lock ด้วย portalocker.LOCK_SH
+
+
+แต่เมื่ออยู่ในสถานะ portalocker.LOCK_SH การสั่ง portalocker.LOCK_EX จะต้องรอ portalocker.LOCK_SH
+ทั้งหมด ปลดล๊อกก่อนเท่านั้น 
+
+ในทางกลับกันหากมีการ lock ด้วย portalocker.LOCK_EX ถ้ามีการสั่ง portalocker.LOCK_SH
+แม้จะมีกี่ตัวก็ตาม ก็ต้องรอ portalocker.LOCK_EX ปลดล๊อกให้เท่านั้น 
+
+** ข้อแตกต่างของ portalocker.LOCK_EX คือ portalocker.LOCK_EX ไม่สามารถสั่ง portalocker.LOCK_EX
+ได้หลายๆตัวพร้อมกัน หากเจอว่า portalocker.LOCK_EX มีการสั่งไปแล้ว การที่ script อื่นจะสั่ง
+portalocker.LOCK_EX บ้าง จะต้องรอ portalocker.LOCK_EX ตัวแรกปลดล๊อกให้เท่านั้น

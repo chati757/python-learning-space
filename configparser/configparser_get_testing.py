@@ -4,6 +4,8 @@ import configparser
 config = configparser.RawConfigParser()
 config.read('test.txt')
 
+#get string
+baz_string = config.get('page_status','baz')
 # getfloat() raises an exception if the value is not a float
 # getint() and getboolean() also do this for their respective types
 a_float = config.getfloat('page_status', 'a_float')

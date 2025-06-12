@@ -9,7 +9,7 @@ def annotate_axes(ax, text, fontsize=18):
 
 fig = plt.figure(dpi=100) #constrained_layout=True
 
-gs0 = fig.add_gridspec(1, 2,wspace=0.5) 
+gs0 = fig.add_gridspec(1, 2,wspace=0.5)
 gs00 = gs0[0].subgridspec(1, 2,wspace=0.5)
 gs01 = gs0[1].subgridspec(1, 1)
 

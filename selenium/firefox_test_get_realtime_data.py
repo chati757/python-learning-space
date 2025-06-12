@@ -28,16 +28,11 @@ driver = webdriver.Firefox(service=firefox_service,options=firefox_options)
 wait = WebDriverWait(driver, 50) #ประกาศก่อน request เพื่อใช้หลัง request ด้วย wait.until...
 
 #working
-driver.get("https://tradingeconomics.com/commodity/crude-oil")
+driver.get("https://tradingeconomics.com/crypto")
 print('waiting..')
 print(f'speed tag : {(time.time() - start_time):6f}')
 try:
-    element = wait.until(
-        EC.presence_of_all_elements_located((By.CSS_SELECTOR,'#aspnetForm > div.container > div > div.col-xl-8.col-lg-8 > div.table-responsive.markets2.market-border > div > div > table > tbody > tr:nth-child(1) > td:nth-child(2)'))
-    )
-    #element = wait.until(
-    #    EC.text_to_be_present_in_element((By.XPATH, "html/body/form/div[5]/div/div[1]/div[5]/div/div/table/tbody/tr[1]/td[2]"), "expected_text")
-    #)
+    element = wait.until(EC.text_to_be_present_in_element((By.XPATH, "html/body/form/div[5]/div/div[1]/div[5]/div/div/table/tbody/tr[1]/td[2]")))
     print('can get element')
     print(element[0].text)
     print('waiting change')

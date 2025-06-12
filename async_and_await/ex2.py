@@ -18,3 +18,4 @@ main สิ้นสุดแล้วแต่ไม่มีการ run task
 
 maincoru = main()
 asyncio.run(maincoru)
+print('after run asyncio.run')
