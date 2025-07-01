@@ -78,9 +78,14 @@ async def main():
     try:
         print('limit1')
         '''
-        #การทำงาน await limiter.call(send_order, "limit",1000) function จะยังคงทำให้ control ยังคงกลับมา caller task 
-        #(แม้เป็น await แต่เป็น await ที่ไม่ทำให้เกิดการรอใน function (limiter.call) 
-        #เลยมันจึงไม่สามารถสลับไปทำ task อื่นที่รอได้ส่วนนี้เลยเป็นเหมือน sync function ธรรมดาเลยและก็ทำบรรทัดต่อไปซึ่งมีพฤติกรรมคล้ายกัน)
+        limiter.call แม้ภายในจะมี await อย่าง await self.queues[func_name].put((func, args, kwargs))
+        แต่มันไม่มีการรอจึงไม่ได้ return control , สลับให้ task อื่นทำงานระหว่างรอเลย
+        (เรื่องนี้ทำให้รู้ว่าแม้มี await ก็ตามแต่ไม่ได้รับรองว่าจะ return control ไปให้ task อื่นทำเสมอไปถ้างานในบรรทัดนั้นไม่ได้รอจริงๆ มันจะทำให้เสร็จและทำงาน
+        บรรทัดถัดไปเหมือน sync function ธรรมมา , อาจทำให้ function ที่คาดหวังว่าจะทำงานระหว่างรอไม่ได้ทำงานได้)
+        
+        สามารถทดสอบได้โดยการเอาบรรทัด 56 : await asyncio.gather(*[q.join() for q in self.queues.values()])
+        ย้ายลงมาใต้ self._shutdown_event.set() ให้ self._shutdown_event.set() ทำงานก่อนเราจะเห็นว่ามันทำงานเป็นเส้นตรง
+        worker จะทำงานจบไวกว่ากำหนดแต่ queue ไม่ถูก clear ทำให้การทำงานค้างอยู่ใน await asyncio.gather(*[q.join() for q in self.queues.values()]) ของ shutdown function
         '''
         await limiter.call(send_order, "limit",1000) 
         print('limit2')
