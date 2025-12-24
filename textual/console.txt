@@ -1,0 +1,2 @@
+-x ยกเลิกการแสดง log "EVENT" และ "SYSTEM"
+textual console -x "EVENT" -x "SYSTEM" -x "INFO"

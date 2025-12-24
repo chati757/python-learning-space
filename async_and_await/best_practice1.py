@@ -7,7 +7,7 @@ import signal
 1.task อื่นทำงานต่อไปได้ แม้มีบาง task ถูก cancel การทำงาน หรือ error เพราะ asyncio.gather มี return_exceptions=True และแต่ละ task ก็มี except ของตัวเอง
 2.main_coru รองรับ asyncio.sleep()
 3.main_coru รองรับ keyboard interrapt (signal)
-4.กรณี coru มี infinite_loop การใช้ task.cancel() เช่น task1.cancel() สามารถหยุด infinite loop ได้สมบูรณ์ (แต่ต่างมี await ใน infinite loop ในที่นี้คือ await asyncio.sleep(1))
+4.กรณี coru มี infinite_loop การใช้ task.cancel() เช่น task1.cancel() สามารถหยุด infinite loop ได้สมบูรณ์ (แต่ต้องมี await ใน infinite loop ในที่นี้คือ await asyncio.sleep(1))
 5.สามารถ break infinite loop ใน task ด้วย event
 '''
 

@@ -20,6 +20,8 @@ class AsyncMultiRateLimiter:
             func_name = func.__name__
             self.min_intervals[func_name] = interval_seconds
 
+            # ช่วยพา traceback ไป function ที่ถูก wrap จริง เมื่อ error ไม่ติดใน wraps
+            # เมื่อ func ถ้าถาม meta data เช่น func.__name__ จะไม่ตอบ wrapper แต่จะตอบ function name นั้นๆ เหมือนเรา Override metadata ลง wrap แต่ละ func ที่เรียกแบบ decorator
             @functools.wraps(func)
             async def wrapper(*args, **kwargs):
                 if func_name not in self.workers:

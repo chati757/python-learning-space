@@ -5,7 +5,7 @@ class AsyncNumberGenerator:
         self.max_number = max_number
 
     def __aiter__(self):
-        # คืน iterator ของ class อื่น
+        # คืน iterator ของ class อื่น แทนที่จะเป็น self ของ class ตัวเอง
         return AsyncIterator(self.max_number)
 
 class AsyncIterator:

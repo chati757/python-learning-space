@@ -1,4 +1,5 @@
 import asyncio
+from rich import print
 
 #asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
@@ -55,7 +56,7 @@ async def main(stop_event):
                     await task
                 except asyncio.CancelledError:
                     pass
-        print('task main : cancelled : all task')
+        print('task main : cancelled : all sub_task')
 
         print('task main : exit')
     except Exception as e:

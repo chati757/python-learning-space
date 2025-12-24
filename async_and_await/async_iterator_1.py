@@ -8,7 +8,7 @@ class AsyncIterator:
     def __aiter__(self):
         #จะถูกเรียกในครั้งแรกเมื่อ async for เพื่อตรวจสอบว่า class มีคุณสมบัติจะเป็น asynchronous iterator ได้หรือไม่
         #ถ้าไม่เกิด error จะเรียก __anext__ เพื่อทำงานใรครั้งถัดไปตาม การกำหนดของ __anext__
-        return self  # คืนตัวเองเป็น iterator
+        return self  # คืนตัวเองเป็น iterator เพื่อเรียกใช้ __anext__ ในส่วนถัดไป
 
     async def __anext__(self):
         if self.current < self.max_number:
